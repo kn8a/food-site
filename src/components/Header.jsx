@@ -8,7 +8,7 @@ const Header = () => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <Box as="header" bg="green.50" py={4}>
+    <Box as="header" bg="yellow.100" py={4}>
       <Flex maxW="1200px" mx="auto" alignItems="center" justifyContent="space-between" px={[4, 0]}>
         <Image src={Logo} alt="Hummus & Salads Logo" h="140px" />
         <Flex flex={1} as="nav" justifyContent={'space-evenly'}>
