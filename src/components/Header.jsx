@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Flex, Link, Image, IconButton, useDisclosure, VStack } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
+import Logo from '../assets/images/logo.png'
 
 const Header = () => {
   const { isOpen, onToggle } = useDisclosure();
@@ -9,12 +10,12 @@ const Header = () => {
   return (
     <Box as="header" bg="green.50" py={4}>
       <Flex maxW="1200px" mx="auto" alignItems="center" justifyContent="space-between" px={[4, 0]}>
-        <Image src="/api/placeholder/150/50" alt="Hummus & Salads Logo" h="50px" />
-        <Flex display={['none', 'none', 'flex']} as="nav">
-          <Link as={RouterLink} to="/" color="white" mx={2}>Home</Link>
-          <Link as={RouterLink} to="/about" color="white" mx={2}>About</Link>
-          <Link as={RouterLink} to="/products" color="white" mx={2}>Products</Link>
-          <Link as={RouterLink} to="/global-reach" color="white" mx={2}>Global Reach</Link>
+        <Image src={Logo} alt="Hummus & Salads Logo" h="140px" />
+        <Flex flex={1} as="nav" justifyContent={'space-evenly'}>
+          <Link as={RouterLink} to="/" color="green.600" fontSize={'large'} fontWeight={'600'} mx={2}>Home</Link>
+          <Link as={RouterLink} to="/about" color="green.600" fontSize={'large'} fontWeight={'600'} mx={2}>About</Link>
+          <Link as={RouterLink} to="/products" color="green.600" fontSize={'large'} fontWeight={'600'} mx={2}>Products</Link>
+          <Link as={RouterLink} to="/global-reach" color="green.600" fontSize={'large'} fontWeight={'600'} mx={2}>Global Reach</Link>
         </Flex>
         <IconButton
           display={['flex', 'flex', 'none']}
