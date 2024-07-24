@@ -4,7 +4,7 @@ import { Box, Heading, Text, Image, SimpleGrid, Container, Button, VStack, HStac
 const ProductCard = ({ name, image, description, category }) => (
   <Box borderWidth={1} borderRadius="lg" overflow="hidden" p={4}>
     <VStack spacing={4} align="start">
-      <Image src={`https://via.placeholder.com/300x200.png?text=${name}`} alt={name} borderRadius="md" w="full" />
+      <Image src={`/public/products/${image}.jpg`} alt={name} borderRadius="md" w="full" />
       <Heading as="h3" size="md">
         {name}
       </Heading>
@@ -22,62 +22,74 @@ const Products = () => {
     {
       name: "Classic Hummus",
       description: "Our smooth and creamy classic hummus, perfect for dipping or spreading.",
-      category: "Hummus"
+      category: "Hummus",
+      image: "hummus"
     },
     {
       name: "Spicy Hummus",
       description: "Classic hummus with a spicy kick, great for those who like it hot.",
-      category: "Hummus"
+      category: "Hummus",
+      image: 'spicy-hummus'
     },
     {
       name: "Beetroot Hummus",
       description: "A vibrant and healthy twist on traditional hummus, made with fresh beetroots.",
-      category: "Hummus"
+      category: "Hummus",
+      image: "beetroot-hummus"
     },
     {
       name: "Eggplant Salad",
       description: "A delicious blend of roasted eggplants, olive oil, and Mediterranean spices.",
-      category: "Eggplant"
+      category: "Eggplant",
+      image: "eggplant"
     },
     {
       name: "Baba Ghanoush",
       description: "A smoky eggplant dip blended with tahini, lemon, and garlic.",
-      category: "Eggplant"
+      category: "Eggplant",
+      image: "baba-ghanoush"
     },
     {
       name: "Tahini",
       description: "Creamy tahini made from roasted sesame seeds, ideal for dressings and dips.",
-      category: "Dips"
+      category: "Dips",
+      image: "tahini"
     },
     {
       name: "To-Go Hummus",
       description: "Our classic hummus in a convenient to-go package with pretzels for dipping.",
-      category: "To-Go"
+      category: "To-Go",
+      image: "to-go-hummus"
     },
     {
       name: "Carrot Salad",
       description: "Shredded carrots with a tangy dressing, a refreshing and healthy option.",
-      category: "Veggie"
+      category: "Veggie",
+      image: "carrot"
     },
     {
       name: "Coleslaw",
       description: "Crisp cabbage and carrots in a creamy dressing, perfect for sandwiches or as a side.",
-      category: "Veggie"
+      category: "Veggie",
+      image: 'coleslaw'
     },
     {
       name: "Matbucha",
       description: "A spicy tomato and pepper dip, a staple in Mediterranean cuisine.",
-      category: "Dips"
+      category: "Dips",
+      image: "matbucha"
     },
     {
       name: "Turkish Salad",
       description: "Finely chopped vegetables in a zesty tomato-based sauce.",
-      category: "Salads"
+      category: "Salads",
+      image: 'turkish'
     },
     {
       name: "Tabbouleh",
       description: "A refreshing herb salad with bulgur wheat, tomatoes, and a lemony dressing.",
-      category: "Salads"
+      category: "Salads",
+      image: "tabbouleh"
     }
   ];
 
