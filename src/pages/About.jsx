@@ -15,13 +15,10 @@ const About = () => {
         </Box>
         <Box>
           <Text fontSize="lg" mb={4}>
-            Today, Hummus & Salads is a market leader, one of the 3 largest Chilled Salads 
-            producers, with a capacity of 1500 tons per month. Our commitment to quality and 
-            authenticity has made us a trusted name in Mediterranean cuisine since 1924.
+          Today, Hummus & Salads stands as a market leader and one of the three largest producers of chilled salads, boasting an impressive production capacity of 1500 tons per month. Our unwavering commitment to quality and authenticity has solidified our reputation as a trusted name in Mediterranean cuisine since our founding in 1924.
           </Text>
           <Text fontSize="lg">
-            We take pride in our wide range of over 100 different recipes and flavors, catering 
-            to diverse tastes and preferences across the globe.
+          We take immense pride in our extensive range of over 100 different recipes and flavors, designed to cater to the diverse tastes and preferences of consumers around the globe. From classic favorites to innovative new creations, our offerings reflect our dedication to culinary excellence and our passion for bringing the rich flavors of the Mediterranean to your table.
           </Text>
         </Box>
       </SimpleGrid>
@@ -66,11 +63,11 @@ const About = () => {
           We maintain the highest standards of quality and safety, as evidenced by our certifications:
         </Text>
         <SimpleGrid columns={[2, null, 5]} spacing={5} justifyItems="center">
-          <Image src="/kosher.png" alt="Kosher Certified" h="80px" />
-          <Image src="/ou.png" alt="OU Certified" h="80px" />
-          <Image src="/fssc22000.png" alt="FSSC 22000 Certified" h="80px" />
-          <Image src="/haccp.png" alt="HACCP Certified" h="80px" />
-          <Image src="/vegan.png" alt="Vegan Friendly" h="80px" />
+          <Image src="public\certs\kosher.png" alt="Kosher Certified" h="80px" />
+          
+          <Image src="public\certs\fssc.png" alt="FSSC 22000 Certified" h="80px" />
+          <Image src="public\certs\haccp.png" alt="HACCP Certified" h="80px" />
+          <Image src="public\certs\vegan.png" alt="Vegan Friendly" h="80px" />
         </SimpleGrid>
       </Box>
     </Container>

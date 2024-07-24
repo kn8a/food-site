@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Flex, Link, Image, IconButton, useDisclosure, VStack } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
-import Logo from '../assets/images/logo.png'
+import Logo from '../assets/images/2logo.png'
 
 const Header = () => {
   const { isOpen, onToggle } = useDisclosure();
