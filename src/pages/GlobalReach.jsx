@@ -15,22 +15,7 @@ const data = [
   { year: 2031, value: 10.21 }
 ];
 
-const mapData = [
-  { country: "ca", value: 1 }, // china
-  { country: "us", value: 1 }, // india
-  { country: "ru", value: 1 }, // united states
-  { country: "uk", value: 1 }, // indonesia
-  { country: "fr", value: 1 }, // pakistan
-  { country: "cn", value: 1 }, // pakistan
-  { country: "pl", value: 1 }, // pakistan
-  { country: "es", value: 1 }, // pakistan
-  { country: "gb", value: 1 }, // pakistan
-  { country: "tr", value: 1 }, // pakistan
-  { country: "it", value: 1 }, // pakistan
-  { country: "gr", value: 1 }, // pakistan
-  { country: "de", value: 1 }, // pakistan
-  
-];
+
 
 const GlobalReach = () => {
   return (
