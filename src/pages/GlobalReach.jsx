@@ -93,10 +93,10 @@ const GlobalReach = () => {
             Our Partners
           </Heading>
           <SimpleGrid columns={[2, null, 4]} spacing={5}>
-            <Image src="https://via.placeholder.com/150x100.png?text=US+Partner" alt="US Partner" />
-            <Image src="https://via.placeholder.com/150x100.png?text=France+Partner" alt="France Partner" />
-            <Image src="https://via.placeholder.com/150x100.png?text=UK+Private+Label" alt="UK Private Label" />
-            <Image src="https://via.placeholder.com/150x100.png?text=Israeli+Chain" alt="Leading Israeli Chain" />
+            <Image src="/public/partners/costco.jpg" alt="US Partner" h={'60px'}/>
+            <Image src="/public/partners/publix.jpg" alt="France Partner" h={'60px'}/>
+            <Image src="/public/partners/Tesco.jpg" alt="UK Private Label" h={'60px'}/>
+            <Image src="/public/partners/wellcome.jpg" alt="Leading Israeli Chain" h={'60px'}/>
           </SimpleGrid>
         </Box>
       </VStack>

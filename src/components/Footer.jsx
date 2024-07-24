@@ -7,8 +7,8 @@ const Footer = () => {
       <Container maxW="1200px">
         <VStack spacing={[2, 4]} align={["center", "start"]}>
           <Text textAlign={["center", "left"]}>&copy; 2024 Hummus & Salads. All rights reserved.</Text>
-          <Text textAlign={["center", "left"]}>Contact: International Sales</Text>
-          <Text textAlign={["center", "left"]}>+0-000-0000 | sales@hummusandsalalds.com</Text>
+          <Text textAlign={["center", "left"]}>Contact: Joe Doe - International Sales</Text>
+          <Text textAlign={["center", "left"]}>+12-3-456-7890 | sales@hummusandsalalds.com</Text>
         </VStack>
       </Container>
     </Box>
