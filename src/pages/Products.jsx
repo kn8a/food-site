@@ -113,7 +113,8 @@ const Products = () => {
             <Button 
               key={category}
               onClick={() => setSelectedCategory(category)}
-              colorScheme={selectedCategory === category ? "green" : "gray"}
+              colorScheme="green"
+              variant={selectedCategory === category ? "solid" : "outline"}
             >
               {category}
             </Button>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Heading, Text, Image, SimpleGrid, Container, Stat, StatLabel, StatNumber, StatHelpText, VStack } from '@chakra-ui/react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import WorldMap from "react-svg-worldmap";
 
 const data = [
   { year: 2023, value: 3.6 },
@@ -12,6 +13,23 @@ const data = [
   { year: 2029, value: 8.18 },
   { year: 2030, value: 9.38 },
   { year: 2031, value: 10.21 }
+];
+
+const mapData = [
+  { country: "ca", value: 1 }, // china
+  { country: "us", value: 1 }, // india
+  { country: "ru", value: 1 }, // united states
+  { country: "uk", value: 1 }, // indonesia
+  { country: "fr", value: 1 }, // pakistan
+  { country: "cn", value: 1 }, // pakistan
+  { country: "pl", value: 1 }, // pakistan
+  { country: "es", value: 1 }, // pakistan
+  { country: "gb", value: 1 }, // pakistan
+  { country: "tr", value: 1 }, // pakistan
+  { country: "it", value: 1 }, // pakistan
+  { country: "gr", value: 1 }, // pakistan
+  { country: "de", value: 1 }, // pakistan
+  
 ];
 
 const GlobalReach = () => {
@@ -42,7 +60,11 @@ const GlobalReach = () => {
             </SimpleGrid>
           </Box>
           <Box>
-            <Image src="https://via.placeholder.com/600x400.png?text=Global+Presence" alt="Hummus & Salads Global Presence" borderRadius="md" w="full" />
+            <WorldMap color="green"
+        
+        value-suffix="people"
+        size="lg"
+        data={mapData}/>
           </Box>
         </SimpleGrid>
 

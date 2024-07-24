@@ -16,7 +16,7 @@ const Home = () => {
 
         <SimpleGrid columns={[1, null, 2]} spacing={[5, 10]} w="full">
           <Box>
-            <Image src="https://via.placeholder.com/600x400.png?text=Hummus+Salads+Hummus" alt="Hummus & Salads Hummus" borderRadius="md" w="full" />
+            <Image src="/public/products/hummus-salads.jpg" alt="Hummus & Salads Hummus" borderRadius="md" w="full" />
           </Box>
           <Box>
             <Heading as="h2" size={["lg", "xl"]} mb={[2, 4]}>
