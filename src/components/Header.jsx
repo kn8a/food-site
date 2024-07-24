@@ -1,38 +1,84 @@
 import React from 'react';
-import { Box, Flex, Link, Image, IconButton, useDisclosure, VStack } from '@chakra-ui/react';
+import { Box, Flex, Image, IconButton, useDisclosure, VStack, HStack, Button, Icon } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
-import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
-import Logo from '../assets/images/logo.png'
+import { HamburgerIcon, CloseIcon, InfoOutlineIcon, StarIcon, ExternalLinkIcon } from '@chakra-ui/icons';
+import { FaHome, FaGlobe } from 'react-icons/fa';
+import Logo from '../assets/images/logo.png';
 
 const Header = () => {
-  const { isOpen, onToggle } = useDisclosure();
+  const { isOpen, onToggle, onClose } = useDisclosure();
+
+  const navItems = [
+    { name: 'Home', path: '/', icon: FaHome },
+    { name: 'About', path: '/about', icon: InfoOutlineIcon },
+    { name: 'Products', path: '/products', icon: StarIcon },
+    { name: 'Global Reach', path: '/global-reach', icon: FaGlobe },
+  ];
 
   return (
-    <Box as="header" bgGradient='linear(to-r, yellow.100, green.100)' py={4}>
-      <Flex maxW="1200px" mx="auto" alignItems="center" justifyContent="space-between" px={[4, 0]}>
-        <Image src={Logo} alt="Hummus & Salads Logo" h="140px" />
-        <Flex display={['none', 'none', 'flex']} as="nav" justifyContent={'space-evenly'}>
-          <Link as={RouterLink} to="/" color="green.600" fontSize={'large'} fontWeight={'600'} mx={2}>Home</Link>
-          <Link as={RouterLink} to="/about" color="green.600" fontSize={'large'} fontWeight={'600'} mx={2}>About</Link>
-          <Link as={RouterLink} to="/products" color="green.600" fontSize={'large'} fontWeight={'600'} mx={2}>Products</Link>
-          <Link as={RouterLink} to="/global-reach" color="green.600" fontSize={'large'} fontWeight={'600'} mx={2}>Global Reach</Link>
-        </Flex>
+    <Box as="header" bgGradient="linear(to-r, yellow.100, green.100)" py={4} boxShadow="md" position="relative">
+      <Flex maxW="1200px" mx="auto" alignItems="center" justifyContent="space-between" px={[4, 8]}>
+        <Image src={Logo} alt="Hummus & Salads Logo" h={["50px", "75px", "100px", "140px"]} />
+        <HStack display={{ base: 'none', md: 'flex' }} as="nav" spacing={4}>
+          {navItems.map((item, index) => (
+            <Button
+              key={index}
+              as={RouterLink}
+              to={item.path}
+              colorScheme="green"
+              variant="ghost"
+              size="lg"
+              fontWeight="bold"
+              _hover={{ bg: 'green.100' }}
+              leftIcon={<Icon as={item.icon} />}
+            >
+              {item.name}
+            </Button>
+          ))}
+        </HStack>
         <IconButton
-          display={['flex', 'flex', 'none']}
+          display={{ base: 'flex', md: 'none' }}
           onClick={onToggle}
           icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-          variant="solid"
-          colorScheme='green'
-          size={'lg'}
+          variant="outline"
+          colorScheme="green"
+          size="lg"
           aria-label="Toggle Navigation"
+          zIndex="dropdown"
         />
       </Flex>
       {isOpen && (
-        <VStack display={['flex', 'flex', 'none']} p={2} bg="green.500">
-          <Link as={RouterLink} to="/" color="white" w="full" textAlign="center" py={2} onClick={onToggle}>Home</Link>
-          <Link as={RouterLink} to="/about" color="white" w="full" textAlign="center" py={2} onClick={onToggle}>About</Link>
-          <Link as={RouterLink} to="/products" color="white" w="full" textAlign="center" py={2} onClick={onToggle}>Products</Link>
-          <Link as={RouterLink} to="/global-reach" color="white" w="full" textAlign="center" py={2} onClick={onToggle}>Global Reach</Link>
+        
+        <VStack
+          display={{ base: 'flex', md: 'none' }}
+          position="fixed"
+          top="0"
+          left="0"
+          right="0"
+          p={4}
+          bgGradient="linear(to-r, yellow.100, green.100)"
+          spacing={4}
+          zIndex={1}
+           // Padding top to prevent menu from overlapping with the header
+           pt={20}
+        >
+
+          
+          {navItems.map((item, index) => (
+            <Button
+              key={index}
+              as={RouterLink}
+              to={item.path}
+              colorScheme="green"
+              variant="solid"
+              size="lg"
+              w="full"
+              onClick={onToggle}
+              leftIcon={<Icon as={item.icon} />}
+            >
+              {item.name}
+            </Button>
+          ))}
         </VStack>
       )}
     </Box>
