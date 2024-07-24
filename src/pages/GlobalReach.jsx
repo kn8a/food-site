@@ -59,12 +59,8 @@ const GlobalReach = () => {
               </Box>
             </SimpleGrid>
           </Box>
-          <Box>
-            <WorldMap color="green"
-        
-        value-suffix="people"
-        size="lg"
-        data={mapData}/>
+          <Box >
+            <Image src='/public/map.JPG'></Image>
           </Box>
         </SimpleGrid>
 

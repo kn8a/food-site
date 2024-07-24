@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Flex, Link, Image, IconButton, useDisclosure, VStack } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
-import Logo from '../assets/images/2logo.png'
+import Logo from '../assets/images/logo.png'
 
 const Header = () => {
   const { isOpen, onToggle } = useDisclosure();
@@ -11,7 +11,7 @@ const Header = () => {
     <Box as="header" bgGradient='linear(to-r, yellow.100, green.100)' py={4}>
       <Flex maxW="1200px" mx="auto" alignItems="center" justifyContent="space-between" px={[4, 0]}>
         <Image src={Logo} alt="Hummus & Salads Logo" h="140px" />
-        <Flex flex={1} as="nav" justifyContent={'space-evenly'}>
+        <Flex display={['none', 'none', 'flex']} as="nav" justifyContent={'space-evenly'}>
           <Link as={RouterLink} to="/" color="green.600" fontSize={'large'} fontWeight={'600'} mx={2}>Home</Link>
           <Link as={RouterLink} to="/about" color="green.600" fontSize={'large'} fontWeight={'600'} mx={2}>About</Link>
           <Link as={RouterLink} to="/products" color="green.600" fontSize={'large'} fontWeight={'600'} mx={2}>Products</Link>
@@ -21,7 +21,9 @@ const Header = () => {
           display={['flex', 'flex', 'none']}
           onClick={onToggle}
           icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-          variant="outline"
+          variant="solid"
+          colorScheme='green'
+          size={'lg'}
           aria-label="Toggle Navigation"
         />
       </Flex>

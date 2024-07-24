@@ -13,7 +13,7 @@ const App = () => {
   return (
     <ChakraProvider theme={theme}>
       <Router>
-        <Box minHeight="100vh" display="flex" flexDirection="column" width={'100vw'}>
+        <Box minHeight="100vh" display="flex" flexDirection="column" justifyContent={'center'} w={'100vw'} alignSelf={'center'}>
           <Header />
           <Box flex={1}>
             <Routes>
