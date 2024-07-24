@@ -23,10 +23,7 @@ const Home = () => {
               Our Story
             </Heading>
             <Text fontSize={["md", "lg"]}>
-            Hummus & Salads is a pioneer producer and marketer of Premium Chilled Hummus Salads, 
-              Dips & Mediterranean range to the retail & food service markets all over the world. 
-              With over 100 different recipes and flavors, we've been exporting worldwide since 1972 
-              to the US, Canada, Europe & Russia.
+            Hummus & Salads is a pioneering producer and marketer of premium chilled hummus, salads, dips, and a wide range of Mediterranean products. We serve both the retail and food service markets across the globe. With over 100 different recipes and flavors, our diverse and high-quality offerings cater to a wide array of tastes and preferences. Since 1972, we have been exporting our products worldwide, including to the US, Canada, Europe, and Asia, consistently delivering the rich and authentic flavors of Mediterranean cuisine to our international customers.
             </Text>
           </Box>
         </SimpleGrid>
