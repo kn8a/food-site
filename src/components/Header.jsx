@@ -3,7 +3,7 @@ import { Box, Flex, Image, IconButton, useDisclosure, VStack, HStack, Button, Ic
 import { Link as RouterLink } from 'react-router-dom';
 import { HamburgerIcon, CloseIcon, InfoOutlineIcon, StarIcon, ExternalLinkIcon } from '@chakra-ui/icons';
 import { FaHome, FaGlobe } from 'react-icons/fa';
-import Logo from '../assets/images/logo.png';
+import Logo from '../assets/images/logo-dark.png';
 
 const Header = () => {
   const { isOpen, onToggle, onClose } = useDisclosure();
@@ -13,13 +13,16 @@ const Header = () => {
     { name: 'About', path: '/about', icon: InfoOutlineIcon },
     { name: 'Products', path: '/products', icon: StarIcon },
     { name: 'Global Reach', path: '/global-reach', icon: FaGlobe },
+
   ];
 
   return (
-    <Box as="header" bgGradient="linear(to-r, yellow.100, green.100)" py={4} boxShadow="md" position="relative">
+    <Box as="header" bgGradient="linear(to-r, green.900, black)" py={4} boxShadow="md" position="relative">
+
       <Flex maxW="1200px" mx="auto" alignItems="center" justifyContent="space-between" px={[4, 8]}>
-        <Image src={Logo} alt="Hummus & Salads Logo" h={["50px", "75px", "100px", "140px"]} />
-        <HStack display={{ base: 'none', md: 'flex' }} as="nav" spacing={4}>
+        <Image src={Logo} alt="Hummus & Salads Logo" h={["50px", "75px", "100px", "100px"]} />
+        <Flex direction={'column'} flex={1} justifyContent={'right'} pl={4}>
+        <HStack display={{ base: 'none', md: 'flex' }} as="nav" spacing={4} justifyContent={'right'}>
           {navItems.map((item, index) => (
             <Button
               key={index}
@@ -27,7 +30,7 @@ const Header = () => {
               to={item.path}
               colorScheme="green"
               variant="ghost"
-              size="lg"
+              size="md"
               fontWeight="bold"
               _hover={{ bg: 'green.100' }}
               leftIcon={<Icon as={item.icon} />}
@@ -36,6 +39,10 @@ const Header = () => {
             </Button>
           ))}
         </HStack>
+        <Flex h={'2px'}  bgGradient="linear(to-r, green.900, green.800, black)" w={'100%'} ></Flex>
+        </Flex>
+        
+        
         <IconButton
           display={{ base: 'flex', md: 'none' }}
           onClick={onToggle}
@@ -46,6 +53,7 @@ const Header = () => {
           aria-label="Toggle Navigation"
           zIndex="dropdown"
         />
+        
       </Flex>
       {isOpen && (
         
