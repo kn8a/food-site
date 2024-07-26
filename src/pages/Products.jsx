@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Box, Heading, Text, Image, SimpleGrid, Container, Button, VStack, HStack, Tag } from '@chakra-ui/react';
+import { Box, Heading, Text, Image, SimpleGrid, Container, Button, VStack, HStack, Tag, Wrap } from '@chakra-ui/react';
 
-const ProductCard = ({ name, image, description, category }) => (
+const ProductCard = ({ name, image, description, categories }) => (
   <Box borderWidth={1} borderRadius="lg" overflow="hidden" p={4}>
     <VStack spacing={4} align="start">
       <Image src={`/public/products/${image}.jpg`} alt={name} borderRadius="md" w="full" />
@@ -9,7 +9,11 @@ const ProductCard = ({ name, image, description, category }) => (
         {name}
       </Heading>
       <Text>{description}</Text>
-      <Tag colorScheme="green">{category}</Tag>
+      <Wrap>
+        {categories.map((category, index) => (
+          <Tag key={index} colorScheme="green">{category}</Tag>
+        ))}
+      </Wrap>
       <Button colorScheme="green">Learn More</Button>
     </VStack>
   </Box>
@@ -22,82 +26,82 @@ const Products = () => {
     {
       name: "Classic Hummus",
       description: "Our smooth and creamy classic hummus, perfect for dipping or spreading.",
-      category: "Hummus",
+      categories: ["Hummus", "Dips"],
       image: "hummus"
     },
     {
       name: "Spicy Hummus",
       description: "Classic hummus with a spicy kick, great for those who like it hot.",
-      category: "Hummus",
+      categories: ["Hummus", "Dips", "Spicy"],
       image: 'spicy-hummus'
     },
     {
       name: "Beetroot Hummus",
       description: "A vibrant and healthy twist on traditional hummus, made with fresh beetroots.",
-      category: "Hummus",
+      categories: ["Hummus", "Dips", "Veggie"],
       image: "beetroot-hummus"
     },
     {
       name: "Eggplant Salad",
       description: "A delicious blend of roasted eggplants, olive oil, and Mediterranean spices.",
-      category: "Eggplant",
+      categories: ["Eggplant", "Salads", "Veggie"],
       image: "eggplant"
     },
     {
       name: "Baba Ghanoush",
       description: "A smoky eggplant dip blended with tahini, lemon, and garlic.",
-      category: "Eggplant",
+      categories: ["Eggplant", "Dips"],
       image: "baba-ghanoush"
     },
     {
       name: "Tahini",
       description: "Creamy tahini made from roasted sesame seeds, ideal for dressings and dips.",
-      category: "Dips",
+      categories: ["Dips"],
       image: "tahini"
     },
     {
       name: "To-Go Hummus",
       description: "Our classic hummus in a convenient to-go package with pretzels for dipping.",
-      category: "To-Go",
+      categories: ["To-Go", "Hummus", "Dips"],
       image: "to-go-hummus"
     },
     {
       name: "Carrot Salad",
       description: "Shredded carrots with a tangy dressing, a refreshing and healthy option.",
-      category: "Veggie",
+      categories: ["Veggie", "Salads"],
       image: "carrot"
     },
     {
       name: "Coleslaw",
       description: "Crisp cabbage and carrots in a creamy dressing, perfect for sandwiches or as a side.",
-      category: "Veggie",
+      categories: ["Veggie", "Salads"],
       image: 'coleslaw'
     },
     {
       name: "Matbucha",
       description: "A spicy tomato and pepper dip, a staple in Mediterranean cuisine.",
-      category: "Dips",
+      categories: ["Dips", "Spicy"],
       image: "matbucha"
     },
     {
       name: "Turkish Salad",
       description: "Finely chopped vegetables in a zesty tomato-based sauce.",
-      category: "Salads",
+      categories: ["Salads", "Veggie"],
       image: 'turkish'
     },
     {
       name: "Tabbouleh",
       description: "A refreshing herb salad with bulgur wheat, tomatoes, and a lemony dressing.",
-      category: "Salads",
+      categories: ["Salads", "Veggie"],
       image: "tabbouleh"
     }
   ];
 
-  const categories = ['All', ...new Set(products.map(product => product.category))];
+  const categories = ['All', ...new Set(products.flatMap(product => product.categories))];
 
   const filteredProducts = selectedCategory === 'All' 
     ? products 
-    : products.filter(product => product.category === selectedCategory);
+    : products.filter(product => product.categories.includes(selectedCategory));
 
   return (
     <Container maxW="1200px" py={[5, 10]}>
