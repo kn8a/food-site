@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Heading, Text, Image, SimpleGrid, Container, List, ListItem, ListIcon } from '@chakra-ui/react';
+import { Box, Heading, Text, Image, SimpleGrid, Container, List, ListItem, ListIcon, VStack } from '@chakra-ui/react';
 import { CheckCircleIcon } from '@chakra-ui/icons';
 
 const About = () => {
@@ -62,13 +62,24 @@ const About = () => {
         <Text fontSize="lg" mb={4}>
           We maintain the highest standards of quality and safety, as evidenced by our certifications:
         </Text>
-        <SimpleGrid columns={[2, null, 5]} spacing={5} justifyItems="center">
-          <Image src="public\certs\kosher.png" alt="Kosher Certified" h="80px" />
-          
-          <Image src="public\certs\fssc.png" alt="FSSC 22000 Certified" h="80px" />
-          <Image src="public\certs\haccp.png" alt="HACCP Certified" h="80px" />
-          <Image src="public\certs\vegan.png" alt="Vegan Friendly" h="80px" />
-        </SimpleGrid>
+        <SimpleGrid columns={[2, null, 4]} spacing={5} justifyItems="center">
+      <VStack>
+        <Image src="public/certs/kosher.png" alt="Kosher Certified" h="80px" />
+        <Text fontSize={'small'}>Kosher Certified</Text>
+      </VStack>
+      <VStack>
+        <Image src="public/certs/fssc.png" alt="FSSC 22000 Certified" h="80px" />
+        <Text fontSize={'small'}>FSSC 22000 Certified</Text>
+      </VStack>
+      <VStack>
+        <Image src="public/certs/haccp.png" alt="HACCP Certified" h="80px" />
+        <Text fontSize={'small'}>HACCP Certified</Text>
+      </VStack>
+      <VStack>
+        <Image src="public/certs/vegan.png" alt="Vegan Friendly" h="80px" />
+        <Text fontSize={'small'}>Vegan Friendly</Text>
+      </VStack>
+    </SimpleGrid>
       </Box>
     </Container>
   );
