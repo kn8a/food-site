@@ -2,8 +2,9 @@ import React from 'react';
 import { Box, Flex, Image, IconButton, useDisclosure, VStack, HStack, Button, Icon } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
 import { HamburgerIcon, CloseIcon, InfoOutlineIcon, StarIcon, ExternalLinkIcon } from '@chakra-ui/icons';
-import { FaHome, FaGlobe } from 'react-icons/fa';
+import { FaHome, FaGlobe, FaLeaf, FaEnvelope } from 'react-icons/fa';
 import Logo from '../assets/images/logo-dark.png';
+import { color } from 'framer-motion';
 
 const Header = () => {
   const { isOpen, onToggle, onClose } = useDisclosure();
@@ -11,8 +12,9 @@ const Header = () => {
   const navItems = [
     { name: 'Home', path: '/', icon: FaHome },
     { name: 'About', path: '/about', icon: InfoOutlineIcon },
-    { name: 'Products', path: '/products', icon: StarIcon },
+    { name: 'Products', path: '/products', icon: FaLeaf },
     { name: 'Global Reach', path: '/global-reach', icon: FaGlobe },
+    { name: 'Contact', path: '/contact', icon: FaEnvelope },
 
   ];
 
@@ -32,8 +34,9 @@ const Header = () => {
               variant="ghost"
               size="md"
               fontWeight="bold"
-              _hover={{ bg: 'green.100' }}
+              _hover={{ bg: 'green.700', color: "white" }}
               leftIcon={<Icon as={item.icon} />}
+              
             >
               {item.name}
             </Button>

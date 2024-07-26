@@ -8,6 +8,7 @@ import About from './pages/About';
 import Products from './pages/Products';
 import GlobalReach from './pages/GlobalReach';
 import theme from './theme';
+import ContactUs from './pages/ContactUs';
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
               <Route path="/about" element={<About />} />
               <Route path="/products" element={<Products />} />
               <Route path="/global-reach" element={<GlobalReach />} />
+              <Route path="/contact" element={<ContactUs />} />
             </Routes>
           </Box>
           <Footer />
