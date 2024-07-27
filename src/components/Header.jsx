@@ -34,7 +34,7 @@ const Header = () => {
               variant="ghost"
               size="md"
               fontWeight="bold"
-              _hover={{ bg: 'green.700', color: "white" }}
+              _hover={{ bg: 'green.900', color: "green.100" }}
               leftIcon={<Icon as={item.icon} />}
               
             >
