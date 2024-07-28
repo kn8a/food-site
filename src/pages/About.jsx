@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Heading, Text, Image, SimpleGrid, Container, List, ListItem, ListIcon, VStack } from '@chakra-ui/react';
+import { Box, Heading, Text, Image, SimpleGrid, Container, List, ListItem, ListIcon, VStack, Divider } from '@chakra-ui/react';
 import { CheckCircleIcon } from '@chakra-ui/icons';
 
 const About = () => {
@@ -22,7 +22,7 @@ const About = () => {
           </Text>
         </Box>
       </SimpleGrid>
-
+<Divider mb={6}></Divider>
       <Box mb={10}>
         <Heading as="h2" size="xl" mb={4}>
           Our Production Process
@@ -54,7 +54,7 @@ const About = () => {
           </ListItem>
         </List>
       </Box>
-
+      <Divider mb={6}></Divider>
       <Box>
         <Heading as="h2" size="xl" mb={4}>
           Our Certifications

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Heading, Text, Image, SimpleGrid, Container, VStack, Flex } from '@chakra-ui/react';
+import { Box, Heading, Text, Image, SimpleGrid, Container, VStack, Flex, Divider } from '@chakra-ui/react';
 
 const Home = () => {
   return (
@@ -51,9 +51,7 @@ const Home = () => {
           </Box>
           </Flex>
         {/* </SimpleGrid> */}
-        {/* <Flex >
-      <Image src='/public/divider.svg' h={"40px"}></Image>
-    </Flex> */}
+        <Divider></Divider>
         <Box w="full">
           <Heading as="h2" size={["lg", "xl"]} mb={[2, 4]} textAlign="center">
             Our Certifications

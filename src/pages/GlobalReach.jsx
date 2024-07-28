@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Heading, Text, Image, SimpleGrid, Container, Stat, StatLabel, StatNumber, StatHelpText, VStack } from '@chakra-ui/react';
+import { Box, Divider, Heading, Text, Image, SimpleGrid, Container, Stat, StatLabel, StatNumber, StatHelpText, VStack } from '@chakra-ui/react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import WorldMap from "react-svg-worldmap";
 
@@ -48,7 +48,7 @@ const GlobalReach = () => {
             <Image src='/public/map.JPG'></Image>
           </Box>
         </SimpleGrid>
-
+        <Divider ></Divider>
         <Box w="full">
           <Heading as="h2" size={["lg", "xl"]} mb={[2, 4]}>
             Market Growth
@@ -87,7 +87,7 @@ const GlobalReach = () => {
             <StatHelpText>Compound Annual Growth Rate</StatHelpText>
           </Stat>
         </SimpleGrid>
-
+        <Divider ></Divider>
         <Box w="full">
           <Heading as="h2" size={["lg", "xl"]} mb={[2, 4]}>
             Our Partners

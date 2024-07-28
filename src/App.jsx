@@ -9,6 +9,7 @@ import Products from './pages/Products';
 import GlobalReach from './pages/GlobalReach';
 import theme from './theme';
 import ContactUs from './pages/ContactUs';
+import "./App.css"
 
 const App = () => {
   return (
