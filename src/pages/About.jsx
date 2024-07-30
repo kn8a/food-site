@@ -10,7 +10,7 @@ const About = () => {
       </Heading>
 
       <SimpleGrid columns={[1, null, 2]} spacing={10} mb={10}>
-        <Box>
+        <Box display={'flex'} justifyContent={'center'}>
           <Image src="/factory.jpg" alt="Hummus & Salads Factory" borderRadius="md"  />
         </Box>
         <Box>
@@ -23,7 +23,7 @@ const About = () => {
         </Box>
       </SimpleGrid>
 <Divider mb={6}></Divider>
-<Flex justifyContent={'space-around'} direction={{ base: 'column', md: 'row' }}>
+<Flex justifyContent={'space-between'} direction={{ base: 'column', md: 'row' }}>
 <Box mb={10}>
         <Heading as="h2" size="xl" mb={4}>
           Our Production Process
