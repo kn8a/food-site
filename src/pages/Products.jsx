@@ -4,7 +4,7 @@ import { Box, Heading, Text, Image, SimpleGrid, Container, Button, VStack, HStac
 const ProductCard = ({ name, image, description, categories }) => (
   <Box borderWidth={1} borderRadius="lg" overflow="hidden" p={4}>
     <VStack spacing={4} align="start">
-      <Image src={`/public/products/${image}.jpg`} alt={name} borderRadius="md" w="full" />
+      <Image src={`/products/${image}.jpg`} alt={name} borderRadius="md" w="full" />
       <Heading as="h3" size="md">
         {name}
       </Heading>

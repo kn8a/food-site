@@ -45,7 +45,7 @@ const GlobalReach = () => {
             </SimpleGrid>
           </Box>
           <Box >
-            <Image src='/public/map.JPG'></Image>
+            <Image src='/map.JPG'></Image>
           </Box>
         </SimpleGrid>
         <Divider ></Divider>
@@ -93,10 +93,10 @@ const GlobalReach = () => {
             Our Partners
           </Heading>
           <SimpleGrid columns={[2, null, 4]} spacing={5}>
-            <Image src="/public/partners/costco.jpg" alt="US Partner" h={'60px'}/>
-            <Image src="/public/partners/publix.jpg" alt="France Partner" h={'60px'}/>
-            <Image src="/public/partners/Tesco.jpg" alt="UK Private Label" h={'60px'}/>
-            <Image src="/public/partners/wellcome.jpg" alt="Leading Israeli Chain" h={'60px'}/>
+            <Image src="/partners/costco.jpg" alt="US Partner" h={'60px'}/>
+            <Image src="/partners/publix.jpg" alt="France Partner" h={'60px'}/>
+            <Image src="/partners/Tesco.jpg" alt="UK Private Label" h={'60px'}/>
+            <Image src="/partners/wellcome.jpg" alt="Leading Israeli Chain" h={'60px'}/>
           </SimpleGrid>
         </Box>
       </VStack>

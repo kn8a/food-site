@@ -50,7 +50,7 @@ const ContactUs = () => {
           shadow="xl"
         >
           <Image
-            src="/public/cust-service.jpg"
+            src="/cust-service.jpg"
             alt="Mediterranean salad"
             objectFit="cover"
             w={{ base: 'full', md: '40%' }}
