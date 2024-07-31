@@ -11,7 +11,7 @@ const About = () => {
 
       <SimpleGrid columns={[1, null, 2]} spacing={10} mb={10}>
         <Box display={'flex'} justifyContent={'center'}>
-          <Image src="/factory.jpg" alt="Hummus & Salads Factory" borderRadius="md"  />
+          <Image src="/food-site/factory.jpg" alt="Hummus & Salads Factory" borderRadius="md"  />
         </Box>
         <Box>
           <Text fontSize="lg" mb={4}>
@@ -55,7 +55,7 @@ const About = () => {
           </ListItem>
         </List>
       </Box>
-      <Image src="/public/process.jpg" alt="Hummus & Salads Factory" borderRadius="md" maxW={'400px'} />
+      <Image src="/food-site/process.jpg" alt="Hummus & Salads Factory" borderRadius="md" maxW={'400px'} />
 </Flex>
       
       <Divider mb={6}></Divider>
@@ -68,19 +68,19 @@ const About = () => {
         </Text>
         <SimpleGrid columns={[2, null, 4]} spacing={5} justifyItems="center">
       <VStack>
-        <Image src="public/certs/kosher.png" alt="Kosher Certified" h="80px" />
+        <Image src="/food-site/certs/kosher.png" alt="Kosher Certified" h="80px" />
         <Text fontSize={'small'}>Kosher Certified</Text>
       </VStack>
       <VStack>
-        <Image src="public/certs/fssc.png" alt="FSSC 22000 Certified" h="80px" />
+        <Image src="/food-site/certs/fssc.png" alt="FSSC 22000 Certified" h="80px" />
         <Text fontSize={'small'}>FSSC 22000 Certified</Text>
       </VStack>
       <VStack>
-        <Image src="public/certs/haccp.png" alt="HACCP Certified" h="80px" />
+        <Image src="/food-site/certs/haccp.png" alt="HACCP Certified" h="80px" />
         <Text fontSize={'small'}>HACCP Certified</Text>
       </VStack>
       <VStack>
-        <Image src="public/certs/vegan.png" alt="Vegan Friendly" h="80px" />
+        <Image src="/food-site/certs/vegan.png" alt="Vegan Friendly" h="80px" />
         <Text fontSize={'small'}>Vegan Friendly</Text>
       </VStack>
     </SimpleGrid>

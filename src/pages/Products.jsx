@@ -6,7 +6,7 @@ import {
 const ProductCard = ({ product, onLearnMore }) => (
   <Box borderWidth={1} borderRadius="lg" overflow="hidden" p={4}>
     <VStack spacing={4} align="start">
-      <Image src={`/products/${product.image}.jpg`} alt={product.name} borderRadius="md" w="full" />
+      <Image src={`/food-site/products/${product.image}.jpg`} alt={product.name} borderRadius="md" w="full" cursor={'pointer'} onClick={() => onLearnMore(product)}/>
       <Heading as="h3" size="md">
         {product.name}
       </Heading>
@@ -32,7 +32,7 @@ const ProductDrawer = ({ isOpen, onClose, product }) => {
         <DrawerHeader>{product.name}</DrawerHeader>
         <DrawerBody>
           <VStack spacing={4} align="start">
-            <Image src={`/products/${product.image}.jpg`} alt={product.name} borderRadius="md" w="full" />
+            <Image src={`/food-site/products/${product.image}.jpg`} alt={product.name} borderRadius="md" w="full" />
             <Text>{product.detailedDescription}</Text>
             <Heading as="h4" size="sm">Ingredients</Heading>
             <Text>{product.ingredients}</Text>
@@ -205,7 +205,7 @@ const Products = () => {
   };
 
   return (
-    <Container maxW="1200px" py={[5, 10]}>
+    <Container maxW="1200px"  py={[5, 10]}>
       <VStack spacing={[5, 8]}>
         <Heading as="h1" size={["xl", "2xl"]} textAlign="center">
           Our Products

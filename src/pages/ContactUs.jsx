@@ -15,6 +15,8 @@ import {
   useToast,
   Image,
   Collapse,
+  Divider,
+  useColorModeValue,
 } from '@chakra-ui/react';
 
 const ContactUs = () => {
@@ -39,32 +41,45 @@ const ContactUs = () => {
     });
   };
 
+
+
   return (
-    <Box bg="green.50" minHeight="100vh" py={12}>
+    <Box  py={12}>
       <Container maxW="6xl">
+        
+
         <Flex
           direction={{ base: 'column', md: 'row' }}
-          bg="white"
+          
           rounded="xl"
           overflow="hidden"
           shadow="xl"
+          borderColor={"green.500"}
+          borderWidth={"1px"}
         >
           <Image
-            src="/cust-service.jpg"
+            src="/food-site/cust-service.jpg"
             alt="Mediterranean salad"
             objectFit="cover"
             w={{ base: 'full', md: '40%' }}
             h={{ base: '400px', md: 'auto' }}
           />
-          <Box p={8} w={{ base: 'full', md: '60%' }}>
+          <Flex
+            maxW={"2px"}
+            bgGradient='linear(to-b, green.50, green.600, green.50)'
+            w={"100%"}
+          ></Flex>
+          <Box p={8} w={{ base: 'full', md: '60%' }} >
             <Heading as="h2" size="lg" color="green.700" mb={2}>
               Contact Us
             </Heading>
             <Text fontSize="md" color="gray.600" mb={6}>
               We'd love to hear from you! Fill out the form below and we'll get back to you as soon as possible.
             </Text>
-            <form onSubmit={handleSubmit}>
-              <VStack spacing={4} align="flex-start">
+            <Flex flexGrow={1} direction={'column'}  gap={4}>
+            
+            <form onSubmit={handleSubmit} >
+              <VStack spacing={4} align="flex-start" >
                 <FormControl isRequired>
                   <FormLabel>Full Name</FormLabel>
                   <Input placeholder="John Doe" focusBorderColor="green.400" />
@@ -73,6 +88,10 @@ const ContactUs = () => {
                   <FormLabel>Email Address</FormLabel>
                   <Input type="email" placeholder="john@example.com" focusBorderColor="green.400" />
                 </FormControl>
+                <FormControl isRequired>
+                      <FormLabel>Phone Number</FormLabel>
+                      <Input type="tel" placeholder="(123) 456-7890" focusBorderColor="green.400" />
+                    </FormControl>
                 <FormControl>
                   <FormLabel>Preferred Contact Method</FormLabel>
                   <Select placeholder="Select method" onChange={handleContactMethodChange} focusBorderColor="green.400">
@@ -82,9 +101,9 @@ const ContactUs = () => {
                 </FormControl>
                 <Collapse in={isPhoneMethodSelected} animateOpacity>
                   <VStack spacing={4} align="flex-start" width="full">
-                    <FormControl>
-                      <FormLabel>Phone Number</FormLabel>
-                      <Input type="tel" placeholder="(123) 456-7890" focusBorderColor="green.400" />
+                  <FormControl>
+                      <FormLabel>Preferred Contact Date</FormLabel>
+                      <Input type="date" focusBorderColor="green.400" />
                     </FormControl>
                     <FormControl>
                       <FormLabel>Preferred Contact Time</FormLabel>
@@ -101,8 +120,12 @@ const ContactUs = () => {
                 </Button>
               </VStack>
             </form>
+            </Flex>
+            
           </Box>
         </Flex>
+        
+        
       </Container>
     </Box>
   );

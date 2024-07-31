@@ -3,11 +3,11 @@ import { Box, Heading, Text, Image, SimpleGrid, Container, VStack, Flex, Divider
 
 const Home = () => {
   return (
-    <Container maxW="1200px" >
+    <Container maxW="1200px" pb={6} >
       <VStack spacing={[5, 10]}>
         <Box textAlign="center">
         <Flex
-      bgImage={"/public/hummus-bowl1.jpg"}
+      bgImage={"/food-site/hummus-bowl1.jpg"}
       w={'100vw'}
       h={"500px"}
       bgPosition={'center'}
@@ -28,7 +28,7 @@ const Home = () => {
           
         </Box>
     <Flex>
-      <Image src='/divider.svg' h={"40px"}></Image>
+      <Image src='/food-site/divider.svg' h={"40px"}></Image>
     </Flex>
         {/* <SimpleGrid columns={[1, null, 2]} spacing={[5, 10]} w="full"> */}
         <Flex
@@ -39,7 +39,7 @@ const Home = () => {
       gap={8}
     >
           <Box>
-            <Image src="/products/hummus-salads.jpg" alt="Hummus & Salads Hummus" borderRadius="md" w="full" minW={"400px"}/>
+            <Image src="/food-site/products/hummus-salads.jpg" alt="Hummus & Salads Hummus" borderRadius="md" w="full" minW={"400px"}/>
           </Box>
           <Box>
             <Heading as="h2" size={["lg", "xl"]} mb={[2, 4]}>
@@ -51,26 +51,26 @@ const Home = () => {
           </Box>
           </Flex>
         {/* </SimpleGrid> */}
-        <Divider></Divider>
+        <Divider colorScheme='green'></Divider>
         <Box w="full">
           <Heading as="h2" size={["lg", "xl"]} mb={[2, 4]} textAlign="center">
             Our Certifications
           </Heading>
           <SimpleGrid columns={[2, null, 4]} spacing={5} justifyItems="center">
       <VStack>
-        <Image src="/certs/kosher.png" alt="Kosher Certified" h="80px" />
+        <Image src="/food-site/certs/kosher.png" alt="Kosher Certified" h="80px" />
         <Text fontSize={'small'}>Kosher Certified</Text>
       </VStack>
       <VStack>
-        <Image src="/certs/fssc.png" alt="FSSC 22000 Certified" h="80px" />
+        <Image src="/food-site/certs/fssc.png" alt="FSSC 22000 Certified" h="80px" />
         <Text fontSize={'small'}>FSSC 22000 Certified</Text>
       </VStack>
       <VStack>
-        <Image src="/certs/haccp.png" alt="HACCP Certified" h="80px" />
+        <Image src="/food-site/certs/haccp.png" alt="HACCP Certified" h="80px" />
         <Text fontSize={'small'}>HACCP Certified</Text>
       </VStack>
       <VStack>
-        <Image src="/certs/vegan.png" alt="Vegan Friendly" h="80px" />
+        <Image src="/food-site/certs/vegan.png" alt="Vegan Friendly" h="80px" />
         <Text fontSize={'small'}>Vegan Friendly</Text>
       </VStack>
     </SimpleGrid>
