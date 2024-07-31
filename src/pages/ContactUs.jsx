@@ -58,6 +58,7 @@ const ContactUs = () => {
           borderWidth={"1px"}
         >
           <Image
+          
             src="/food-site/cust-service.jpg"
             alt="Mediterranean salad"
             objectFit="cover"
