@@ -1,15 +1,16 @@
 import React from 'react';
-import { Box, Flex, Text, VStack, HStack, Container, Divider, Link as ChakraLink } from '@chakra-ui/react';
+import { Box, Image, Flex, Text, VStack, HStack, Container, Divider, Link as ChakraLink } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
 import { FaPhone, FaEnvelope, FaGlobe } from 'react-icons/fa';
+import Logo from "../assets/images/logo-dark.png"
 
 const Footer = () => {
   return (
-    <Box as="footer" bg="green.900" color="white" py={8}>
+    <Box as="footer" bgGradient='linear(to-b, green.900, black)' color="white" py={8}>
       <Container maxW="1200px">
         <Flex direction={{ base: 'column', md: 'row' }} justify="space-between" align="start" mb={8}>
           <VStack align={{ base: 'center', md: 'start' }} mb={{ base: 6, md: 0 }}>
-            <Text fontSize="xl" fontWeight="bold" mb={2}>Hummus & Salads</Text>
+            <Image src={Logo} maxH={"60px"}></Image>
             <Text>Authentic Mediterranean Salads</Text>
             <Text>Producer Since 1974</Text>
           </VStack>
