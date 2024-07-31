@@ -1,4 +1,4 @@
-import React from "react"
+
 import {
   Box,
   Flex,
@@ -16,15 +16,14 @@ import {
   HamburgerIcon,
   CloseIcon,
   InfoOutlineIcon,
-  StarIcon,
-  ExternalLinkIcon,
+
 } from "@chakra-ui/icons"
 import { FaHome, FaGlobe, FaLeaf, FaEnvelope } from "react-icons/fa"
 import Logo from "../assets/images/logo-dark.png"
-import { color } from "framer-motion"
+
 
 const Header = () => {
-  const { isOpen, onToggle, onClose } = useDisclosure()
+  const { isOpen, onToggle } = useDisclosure()
 
   const navItems = [
     { name: "Home", path: "/", icon: FaHome },
@@ -107,7 +106,6 @@ const Header = () => {
           bgGradient='linear(to-r, green.900, black)'
           spacing={4}
           zIndex={1}
-          // Padding top to prevent menu from overlapping with the header
           pt={20}
         >
           {navItems.map((item, index) => (
