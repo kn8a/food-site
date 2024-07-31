@@ -28,8 +28,8 @@ const Header = () => {
 
   const navItems = [
     { name: "Home", path: "/", icon: FaHome },
-    { name: "About", path: "/about", icon: InfoOutlineIcon },
     { name: "Products", path: "/products", icon: FaLeaf },
+    { name: "About", path: "/about", icon: InfoOutlineIcon },
     { name: "Global Reach", path: "/global-reach", icon: FaGlobe },
     { name: "Contact", path: "/contact", icon: FaEnvelope },
   ]
@@ -67,13 +67,13 @@ const Header = () => {
                 as={RouterLink}
                 to={item.path}
                 colorScheme='green'
+                color={"green.400"}
                 variant='ghost'
                 size='md'
                 fontWeight='bold'
                 _hover={{ bg: "green.900", color: "green.100" }}
                 leftIcon={<Icon as={item.icon} />}
               >
-                
                 {item.name}
               </Button>
             ))}
@@ -122,9 +122,7 @@ const Header = () => {
               onClick={onToggle}
               leftIcon={<Icon as={item.icon} />}
             >
-              <Text
-                 
-                >{item.name}</Text>
+              <Text>{item.name}</Text>
             </Button>
           ))}
         </VStack>
