@@ -63,6 +63,7 @@ const ContactUs = () => {
             objectFit="cover"
             w={{ base: 'full', md: '40%' }}
             h={{ base: '400px', md: 'auto' }}
+            
           />
           <Flex
             maxW={"2px"}
