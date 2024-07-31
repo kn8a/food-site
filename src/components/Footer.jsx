@@ -1,7 +1,8 @@
 import React from 'react';
 import { Box, Image, Flex, Text, VStack, HStack, Container, Divider, Link as ChakraLink } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
-import { FaPhone, FaEnvelope, FaGlobe } from 'react-icons/fa';
+import { FaPhone, FaEnvelope, FaGlobe, FaTwitter, FaFacebook, FaYoutube, FaLinkedin } from 'react-icons/fa';
+
 import Logo from "../assets/images/logo-dark.png"
 
 const Footer = () => {
@@ -22,7 +23,7 @@ const Footer = () => {
             <RouterLink to="/global-reach" style={{ color: 'white' }}>Global Reach</RouterLink>
           </VStack>
           <VStack align={{ base: 'center', md: 'start' }}>
-            <Text fontWeight="bold" mb={2}>Contact Us</Text>
+            <Text fontWeight="bold" mb={2}>Get in touch</Text>
             <HStack>
               <FaPhone />
               <Text>+12-3-456-7890</Text>
@@ -35,10 +36,16 @@ const Footer = () => {
               <FaGlobe />
               <Text>www.hummusandsalads.com</Text>
             </HStack>
+            <HStack pt={2}>
+              <FaFacebook/>
+              <FaTwitter/>
+              <FaYoutube/>
+              <FaLinkedin/>
+            </HStack>
           </VStack>
         </Flex>
         <Divider borderColor="green.700" mb={4} />
-        <Flex direction={{ base: 'column', md: 'row' }} justify="space-between" align="center">
+        <Flex direction={{ base: 'column', md: 'row' }} justify="space-between" align="center" color={"green.600"}>
           <Text textAlign={{ base: 'center', md: 'left' }} mb={{ base: 2, md: 0 }}>
             &copy; {new Date().getFullYear()} Hummus & Salads. All rights reserved.
           </Text>
