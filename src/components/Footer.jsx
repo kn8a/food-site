@@ -48,7 +48,7 @@ const Footer = () => {
               Authentic Mediterranean Salads
             </Text>
             <Text fontSize='sm' textAlign={{ base: "center", md: "left" }}>
-              Producer Since 1974
+              Producer Since 1924
             </Text>
           </VStack>
 

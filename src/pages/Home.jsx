@@ -9,7 +9,7 @@ const Home = () => {
         <Flex
       bgImage={"/food-site/hummus-bowl1.jpg"}
       w={'100vw'}
-      h={"500px"}
+      h={"700px"}
       bgPosition={'center'}
       bgSize={'cover'}
       alignItems={'center'}
@@ -20,7 +20,7 @@ const Home = () => {
           Welcome to Hummus & Salads
         </Heading>
         <Text fontSize={["lg", "xl"]} color={'white'}>
-          Authentic Mediterranean Salads producer Since 1974
+          Authentic Mediterranean Salads producer Since 1924
         </Text>
       </Flex>
     </Flex>
