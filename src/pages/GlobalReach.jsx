@@ -48,8 +48,8 @@ const GlobalReach = () => {
               International Presence
             </Heading>
             <Text fontSize={["md", "lg"]} mb={4}>
-              Hummus & Salads has been exporting worldwide since 1972, reaching
-              markets in:
+              {`Hummus & Salads has been exporting worldwide since 1972, reaching
+              markets in:`}
             </Text>
             <SimpleGrid columns={2} spacing={4}>
               <Box>
@@ -72,8 +72,8 @@ const GlobalReach = () => {
             Market Growth
           </Heading>
           <Text fontSize={["md", "lg"]} mb={[3, 6]}>
-            The global hummus market is experiencing significant growth. Here's
-            the projected market size from 2023 to 2031:
+            {`The global hummus market is experiencing significant growth. Here's
+            the projected market size from 2023 to 2031:`}
           </Text>
           <Box h={["300px", "400px"]}>
             <ResponsiveContainer width='100%' height='100%'>
