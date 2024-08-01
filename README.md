@@ -1,4 +1,4 @@
-##React-Vite food manufacturer's website
+## React-Vite food manufacturer's website
 
 ![Cagefepture](https://github.com/user-attachments/assets/f70fe81e-fb84-4234-a380-b055fb2ae41c)
 
