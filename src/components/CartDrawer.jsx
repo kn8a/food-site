@@ -49,7 +49,7 @@ const CartDrawer = ({ isOpen, onClose, cart, removeFromCart }) => {
               <Text fontWeight="bold">Total:</Text>
               <Text fontWeight="bold">${totalPrice.toFixed(2)}</Text>
             </HStack>
-            <Button colorScheme="blue" width="100%">
+            <Button colorScheme="green" width="100%">
               Checkout
             </Button>
           </VStack>

@@ -4,6 +4,7 @@ import {
   Box,
   Heading,
   Text,
+  Flex,
   Image,
   SimpleGrid,
   Container,
@@ -81,26 +82,44 @@ const ProductDrawer = ({ isOpen, onClose, product }) => {
             <Heading as='h4' size='sm'>
               Available Sizes
             </Heading>
-            <Table variant='simple'>
+            <Table variant='simple' mb={4}>
               <Thead>
                 <Tr>
                   <Th>Size</Th>
-                  <Th>Products per Box</Th>
+                  <Th>Items per Box</Th>
+
+                  <Th>Order Box</Th>
                 </Tr>
               </Thead>
               <Tbody>
-                <Tr>
-                  <Td>200gr</Td>
-                  <Td>28</Td>
-                </Tr>
-                <Tr>
-                  <Td>300gr</Td>
-                  <Td>18</Td>
-                </Tr>
-                <Tr>
-                  <Td>500gr</Td>
-                  <Td>12</Td>
-                </Tr>
+                {product.options.map((option, index) => (
+                  <Tr key={index}>
+                    <Td>
+                      <VStack>
+                        <Text>{option.size}</Text>
+                        <Text fontSize={'smaller'}>${option.price.toFixed(2)}</Text>
+                      </VStack>
+                    </Td>
+                    <Td>
+                    <VStack>
+                        <Text >{option.productsPerBox}</Text>
+                        <Text fontSize={'smaller'}>$ {(option.price * option.productsPerBox).toFixed(2)}</Text>
+                      </VStack>
+              </Td>
+
+                    <Td>
+                      <Button
+                        onClick={() =>
+                          addToCart({ ...product, selectedOption: option })
+                        }
+                        colorScheme='green'
+                        size='sm'
+                      >
+                        {`Add to Cart ($${(option.price * option.productsPerBox).toFixed(2)})`}
+                      </Button>
+                    </Td>
+                  </Tr>
+                ))}
               </Tbody>
             </Table>
             <Heading as='h4' size='sm'>
@@ -135,6 +154,11 @@ const Products = () => {
       categories: ["Hummus", "Dips"],
       image: "hummus",
       shelfLife: "2 weeks",
+      options: [
+        { size: "200gr", productsPerBox: 28, price: 1.8 },
+        { size: "300gr", productsPerBox: 18, price: 2.5 },
+        { size: "500gr", productsPerBox: 12, price: 4.0 },
+      ],
     },
     {
       name: "Spicy Hummus",
@@ -147,6 +171,11 @@ const Products = () => {
       categories: ["Hummus", "Dips", "Spicy"],
       image: "spicy-hummus",
       shelfLife: "2 weeks",
+      options: [
+        { size: "200gr", productsPerBox: 28, price: 1.9 },
+        { size: "300gr", productsPerBox: 18, price: 2.64 },
+        { size: "500gr", productsPerBox: 12, price: 4.22 },
+      ],
     },
     {
       name: "Beetroot Hummus",
@@ -159,6 +188,11 @@ const Products = () => {
       categories: ["Hummus", "Dips", "Veggie"],
       image: "beetroot-hummus",
       shelfLife: "2 weeks",
+      options: [
+        { size: "200gr", productsPerBox: 28, price: 2.0 },
+        { size: "300gr", productsPerBox: 18, price: 2.78 },
+        { size: "500gr", productsPerBox: 12, price: 4.44 },
+      ],
     },
     {
       name: "Eggplant Salad",
@@ -170,6 +204,11 @@ const Products = () => {
       categories: ["Eggplant", "Salads", "Veggie"],
       image: "eggplant",
       shelfLife: "1 week",
+      options: [
+        { size: "200gr", productsPerBox: 28, price: 1.7 },
+        { size: "300gr", productsPerBox: 18, price: 2.36 },
+        { size: "500gr", productsPerBox: 12, price: 3.78 },
+      ],
     },
     {
       name: "Baba Ghanoush",
@@ -181,6 +220,11 @@ const Products = () => {
       categories: ["Eggplant", "Dips"],
       image: "baba-ghanoush",
       shelfLife: "1 week",
+      options: [
+        { size: "200gr", productsPerBox: 28, price: 1.6 },
+        { size: "300gr", productsPerBox: 18, price: 2.22 },
+        { size: "500gr", productsPerBox: 12, price: 3.56 },
+      ],
     },
     {
       name: "Tahini",
@@ -192,6 +236,11 @@ const Products = () => {
       categories: ["Dips"],
       image: "tahini",
       shelfLife: "6 months",
+      options: [
+        { size: "200gr", productsPerBox: 28, price: 2.1 },
+        { size: "300gr", productsPerBox: 18, price: 2.92 },
+        { size: "500gr", productsPerBox: 12, price: 4.67 },
+      ],
     },
     {
       name: "To-Go Hummus",
@@ -204,6 +253,10 @@ const Products = () => {
       categories: ["To-Go", "Hummus", "Dips"],
       image: "to-go-hummus",
       shelfLife: "2 weeks",
+      options: [
+        { size: "90gr", productsPerBox: 28, price: 0.6 },
+        { size: "120gr", productsPerBox: 20, price: 0.9 },
+      ],
     },
     {
       name: "Carrot Salad",
@@ -215,6 +268,11 @@ const Products = () => {
       categories: ["Veggie", "Salads"],
       image: "carrot",
       shelfLife: "1 week",
+      options: [
+        { size: "200gr", productsPerBox: 28, price: 1.85 },
+        { size: "300gr", productsPerBox: 18, price: 2.57 },
+        { size: "500gr", productsPerBox: 12, price: 4.11 },
+      ],
     },
     {
       name: "Coleslaw",
@@ -227,6 +285,11 @@ const Products = () => {
       categories: ["Veggie", "Salads"],
       image: "coleslaw",
       shelfLife: "1 week",
+      options: [
+        { size: "200gr", productsPerBox: 28, price: 2.3 },
+        { size: "300gr", productsPerBox: 18, price: 3.19 },
+        { size: "500gr", productsPerBox: 12, price: 5.11 },
+      ],
     },
     {
       name: "Matbucha",
@@ -238,6 +301,11 @@ const Products = () => {
       categories: ["Dips", "Spicy"],
       image: "matbucha",
       shelfLife: "2 weeks",
+      options: [
+        { size: "200gr", productsPerBox: 28, price: 1.75 },
+        { size: "300gr", productsPerBox: 18, price: 2.43 },
+        { size: "500gr", productsPerBox: 12, price: 3.89 },
+      ],
     },
     {
       name: "Turkish Salad",
@@ -249,6 +317,11 @@ const Products = () => {
       categories: ["Salads", "Veggie"],
       image: "turkish",
       shelfLife: "1 week",
+      options: [
+        { size: "200gr", productsPerBox: 28, price: 2.2 },
+        { size: "300gr", productsPerBox: 18, price: 3.06 },
+        { size: "500gr", productsPerBox: 12, price: 4.89 },
+      ],
     },
     {
       name: "Tabbouleh",
@@ -261,6 +334,11 @@ const Products = () => {
       categories: ["Salads", "Veggie"],
       image: "tabbouleh",
       shelfLife: "1 week",
+      options: [
+        { size: "200gr", productsPerBox: 28, price: 1.65 },
+        { size: "300gr", productsPerBox: 18, price: 2.29 },
+        { size: "500gr", productsPerBox: 12, price: 3.67 },
+      ],
     },
   ]
 
