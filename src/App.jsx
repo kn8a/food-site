@@ -18,12 +18,37 @@ const App = () => {
   const { isOpen, onOpen, onClose, onToggle } = useDisclosure()
 
   const addToCart = (item) => {
-    setCart(prevCart => [...prevCart, item])
+    setCart(prevCart => {
+      const existingItemIndex = prevCart.findIndex(
+        cartItem => cartItem.id === item.id && cartItem.selectedOption.size === item.selectedOption.size
+      )
+      
+      if (existingItemIndex > -1) {
+        // Item exists, increase quantity
+        const updatedCart = [...prevCart]
+        updatedCart[existingItemIndex].quantity += 1
+        return updatedCart
+      } else {
+        // New item, add to cart with quantity 1
+        return [...prevCart, { ...item, quantity: 1 }]
+      }
+    })
   }
 
-  const removeFromCart = (itemId) => {
-    setCart(prevCart => prevCart.filter(item => item.id !== itemId))
+  const removeFromCart = (itemId, size) => {
+    setCart(prevCart => prevCart.filter(item => !(item.id === itemId && item.selectedOption.size === size)))
   }
+
+  const updateQuantity = (itemId, size, newQuantity) => {
+    setCart(prevCart => prevCart.map(item => {
+      if (item.id === itemId && item.selectedOption.size === size) {
+        return { ...item, quantity: newQuantity }
+      }
+      return item
+    }))
+  }
+
+  const totalBoxes = cart.reduce((sum, item) => sum + item.quantity, 0)
 
   return (
     <ChakraProvider theme={theme}>
@@ -52,6 +77,7 @@ const App = () => {
             onClose={onClose}
             cart={cart}
             removeFromCart={removeFromCart}
+            updateQuantity={updateQuantity}
           />
         </Box>
       </Router>

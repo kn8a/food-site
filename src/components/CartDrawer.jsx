@@ -12,10 +12,13 @@ import {
   Text,
   HStack,
   Image,
+  Input,
 } from "@chakra-ui/react"
 
-const CartDrawer = ({ isOpen, onClose, cart, removeFromCart }) => {
-  const totalPrice = cart.reduce((sum, item) => sum + item.price, 0)
+const CartDrawer = ({ isOpen, onClose, cart, removeFromCart, updateQuantity }) => {
+  const totalPrice = cart.reduce((sum, item) => 
+    sum + (item.selectedOption.price * item.selectedOption.productsPerBox * item.quantity), 0
+  )
 
   return (
     <Drawer isOpen={isOpen} placement="right" onClose={onClose} size="md">
@@ -30,12 +33,23 @@ const CartDrawer = ({ isOpen, onClose, cart, removeFromCart }) => {
           ) : (
             <VStack spacing={4} align="stretch">
               {cart.map((item) => (
-                <HStack key={item.id} justify="space-between">
-                  <Image src={item.image} boxSize="50px" objectFit="cover" />
-                  <Text>{item.name}</Text>
-                  <Text>${item.price.toFixed(2)}</Text>
-                  <Button onClick={() => removeFromCart(item.id)} size="sm">
-                    Remove
+                <HStack key={`${item.id}-${item.selectedOption.size}`} justify="space-between">
+                  <Image src={`/food-site/products/${item.image}.jpg`} boxSize="50px" objectFit="cover" />
+                  <VStack align="start">
+                    <Text fontWeight="bold">{item.name}</Text>
+                    <Text fontSize="sm">{item.selectedOption.size} - {item.selectedOption.productsPerBox} per box</Text>
+                  </VStack>
+                  <Text>${(item.selectedOption.price * item.selectedOption.productsPerBox * item.quantity).toFixed(2)}</Text>
+                  <Input
+                    type="number"
+                    value={item.quantity}
+                    onChange={(e) => updateQuantity(item.id, item.selectedOption.size, parseInt(e.target.value))}
+                    min={1}
+                    max={99}
+                    width="60px"
+                  />
+                  <Button onClick={() => removeFromCart(item.id, item.selectedOption.size)} size="sm" colorScheme='red'>
+                    X
                   </Button>
                 </HStack>
               ))}

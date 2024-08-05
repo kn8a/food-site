@@ -57,8 +57,10 @@ const ProductCard = ({ product, onLearnMore }) => (
   </Box>
 )
 
-const ProductDrawer = ({ isOpen, onClose, product }) => {
+const ProductDrawer = ({ isOpen, onClose, product, addToCart}) => {
   if (!product) return null
+
+  console.log(addToCart)
 
   return (
     <Drawer isOpen={isOpen} placement='right' onClose={onClose} size='md'>
@@ -97,25 +99,36 @@ const ProductDrawer = ({ isOpen, onClose, product }) => {
                     <Td>
                       <VStack>
                         <Text>{option.size}</Text>
-                        <Text fontSize={'smaller'}>${option.price.toFixed(2)}</Text>
+                        <Text fontSize={"smaller"}>
+                          ${option.price.toFixed(2)}
+                        </Text>
                       </VStack>
                     </Td>
                     <Td>
-                    <VStack>
-                        <Text >{option.productsPerBox}</Text>
-                        <Text fontSize={'smaller'}>$ {(option.price * option.productsPerBox).toFixed(2)}</Text>
+                      <VStack>
+                        <Text>{option.productsPerBox}</Text>
+                        {/* <Text fontSize={'smaller'}>$ {(option.price * option.productsPerBox).toFixed(2)}</Text> */}
                       </VStack>
-              </Td>
+                    </Td>
 
                     <Td>
                       <Button
-                        onClick={() =>
+                        onClick={(e) => {
+                          console.log(e)
                           addToCart({ ...product, selectedOption: option })
-                        }
+                        }}
+                        id={product.id}
                         colorScheme='green'
-                        size='sm'
+                        minH={"60px"}
+                        py={4}
                       >
-                        {`Add to Cart ($${(option.price * option.productsPerBox).toFixed(2)})`}
+                        {" "}
+                        <VStack>
+                          <Text>Add to Cart</Text>
+                          <Text fontSize={"small"}>{`$${(
+                            option.price * option.productsPerBox
+                          ).toFixed(2)}`}</Text>
+                        </VStack>
                       </Button>
                     </Td>
                   </Tr>
@@ -138,14 +151,17 @@ const ProductDrawer = ({ isOpen, onClose, product }) => {
   )
 }
 
-const Products = () => {
+const Products = (props) => {
   const [selectedCategory, setSelectedCategory] = useState("All")
   const [selectedProduct, setSelectedProduct] = useState(null)
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
+  // console.log(props)
+
   const products = [
     {
       name: "Classic Hummus",
+      id: 1000,
       description:
         "Our smooth and creamy classic hummus, perfect for dipping or spreading.",
       detailedDescription:
@@ -162,6 +178,7 @@ const Products = () => {
     },
     {
       name: "Spicy Hummus",
+      id: 1001,
       description:
         "Classic hummus with a spicy kick, great for those who like it hot.",
       detailedDescription:
@@ -179,6 +196,7 @@ const Products = () => {
     },
     {
       name: "Beetroot Hummus",
+      id: 1002,
       description:
         "A vibrant and healthy twist on traditional hummus, made with fresh beetroots.",
       detailedDescription:
@@ -196,6 +214,7 @@ const Products = () => {
     },
     {
       name: "Eggplant Salad",
+      id: 1003,
       description:
         "A delicious blend of roasted eggplants, olive oil, and Mediterranean spices.",
       detailedDescription:
@@ -212,6 +231,7 @@ const Products = () => {
     },
     {
       name: "Baba Ghanoush",
+      id: 1004,
       description:
         "A smoky eggplant dip blended with tahini, lemon, and garlic.",
       detailedDescription:
@@ -228,6 +248,7 @@ const Products = () => {
     },
     {
       name: "Tahini",
+      id: 1005,
       description:
         "Creamy tahini made from roasted sesame seeds, ideal for dressings and dips.",
       detailedDescription:
@@ -244,6 +265,7 @@ const Products = () => {
     },
     {
       name: "To-Go Hummus",
+      id: 1006,
       description:
         "Our classic hummus in a convenient to-go package with pretzels for dipping.",
       detailedDescription:
@@ -260,6 +282,7 @@ const Products = () => {
     },
     {
       name: "Carrot Salad",
+      id: 1007,
       description:
         "Shredded carrots with a tangy dressing, a refreshing and healthy option.",
       detailedDescription:
@@ -276,6 +299,7 @@ const Products = () => {
     },
     {
       name: "Coleslaw",
+      id: 1008,
       description:
         "Crisp cabbage and carrots in a creamy dressing, perfect for sandwiches or as a side.",
       detailedDescription:
@@ -293,6 +317,7 @@ const Products = () => {
     },
     {
       name: "Matbucha",
+      id: 1009,
       description:
         "A spicy tomato and pepper dip, a staple in Mediterranean cuisine.",
       detailedDescription:
@@ -309,6 +334,7 @@ const Products = () => {
     },
     {
       name: "Turkish Salad",
+      id: 1010,
       description: "Finely chopped vegetables in a zesty tomato-based sauce.",
       detailedDescription:
         "Our Turkish salad features finely chopped vegetables in a zesty tomato-based sauce. It's a perfect blend of fresh ingredients with a flavorful twist.",
@@ -325,6 +351,7 @@ const Products = () => {
     },
     {
       name: "Tabbouleh",
+      id: 1011,
       description:
         "A refreshing herb salad with bulgur wheat, tomatoes, and a lemony dressing.",
       detailedDescription:
@@ -391,6 +418,7 @@ const Products = () => {
               key={index}
               product={product}
               onLearnMore={handleLearnMore}
+              addToCart={props.addToCart}
             />
           ))}
         </SimpleGrid>
@@ -399,6 +427,7 @@ const Products = () => {
         isOpen={isDrawerOpen}
         onClose={handleCloseDrawer}
         product={selectedProduct}
+        addToCart={props.addToCart}
       />
     </Container>
   )
