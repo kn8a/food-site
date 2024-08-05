@@ -18,11 +18,11 @@ import {
   InfoOutlineIcon,
 
 } from "@chakra-ui/icons"
-import { FaHome, FaGlobe, FaLeaf, FaEnvelope } from "react-icons/fa"
+import { FaHome, FaGlobe, FaLeaf, FaEnvelope, FaShoppingCart } from "react-icons/fa"
 import Logo from "../assets/images/logo-dark.png"
 
 
-const Header = () => {
+const Header = (props) => {
   const { isOpen, onToggle } = useDisclosure()
 
   const navItems = [
@@ -76,6 +76,20 @@ const Header = () => {
                 {item.name}
               </Button>
             ))}
+            <Button
+                key={"1"}
+                as={RouterLink}
+                // to={}
+                colorScheme='green'
+                color={"green.400"}
+                variant='ghost'
+                size='md'
+                fontWeight='bold'
+                _hover={{ bg: "green.900", color: "green.100" }}
+                leftIcon={<Icon as={FaShoppingCart} />}
+              >
+                {`Cart (${props.cartItemCount})`}
+              </Button>
           </HStack>
           <Flex
             h={"2px"}
