@@ -15,7 +15,7 @@ import CartDrawer from "./components/CartDrawer"
 const App = () => {
 
   const [cart, setCart] = useState([])
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { isOpen, onOpen, onClose, onToggle } = useDisclosure()
 
   const addToCart = (item) => {
     setCart(prevCart => [...prevCart, item])
@@ -36,7 +36,7 @@ const App = () => {
           w={"100vw"}
           alignSelf={"center"}
         >
-          <Header cartItemCount={cart.length}/>
+          <Header cartItemCount={cart.length} cartToggle={onToggle}/>
           <Box flex={1}>
             <Routes>
               <Route path='/' element={<Home />} />

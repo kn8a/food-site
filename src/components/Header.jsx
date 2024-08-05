@@ -88,6 +88,7 @@ const Header = (props) => {
                 fontWeight='bold'
                 _hover={{ bg: "green.900", color: "green.100" }}
                 leftIcon={<Icon as={FaShoppingCart} />}
+                onClick={props.cartToggle}
               >
                 {`Cart (${props.cartItemCount})`}
               </Button>
