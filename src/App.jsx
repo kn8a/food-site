@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { ChakraProvider, Box } from "@chakra-ui/react"
+import { ChakraProvider, Box, useDisclosure } from "@chakra-ui/react"
 import { HashRouter as Router, Route, Routes } from "react-router-dom"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
@@ -10,10 +10,12 @@ import GlobalReach from "./pages/GlobalReach"
 import theme from "./theme"
 import ContactUs from "./pages/ContactUs"
 import "./App.css"
+import CartDrawer from "./components/CartDrawer"
 
 const App = () => {
 
   const [cart, setCart] = useState([])
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   const addToCart = (item) => {
     setCart(prevCart => [...prevCart, item])
@@ -45,6 +47,12 @@ const App = () => {
             </Routes>
           </Box>
           <Footer />
+          <CartDrawer
+            isOpen={isOpen}
+            onClose={onClose}
+            cart={cart}
+            removeFromCart={removeFromCart}
+          />
         </Box>
       </Router>
     </ChakraProvider>
