@@ -12,11 +12,15 @@ import {
   Text,
   HStack,
   Image,
-  Input,
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+  NumberIncrementStepper,
+  NumberDecrementStepper,
 } from "@chakra-ui/react"
 
 const CartDrawer = ({ isOpen, onClose, cart, removeFromCart, updateQuantity }) => {
-  const totalPrice = cart.reduce((sum, item) => 
+  const totalPrice = cart.reduce((sum, item) =>
     sum + (item.selectedOption.price * item.selectedOption.productsPerBox * item.quantity), 0
   )
 
@@ -40,14 +44,19 @@ const CartDrawer = ({ isOpen, onClose, cart, removeFromCart, updateQuantity }) =
                     <Text fontSize="sm">{item.selectedOption.size} - {item.selectedOption.productsPerBox} per box</Text>
                   </VStack>
                   <Text>${(item.selectedOption.price * item.selectedOption.productsPerBox * item.quantity).toFixed(2)}</Text>
-                  <Input
-                    type="number"
+                  <NumberInput
                     value={item.quantity}
-                    onChange={(e) => updateQuantity(item.id, item.selectedOption.size, parseInt(e.target.value))}
+                    onChange={(valueString) => updateQuantity(item.id, item.selectedOption.size, parseInt(valueString))}
                     min={1}
                     max={99}
-                    width="60px"
-                  />
+                    width="70px"
+                  >
+                    <NumberInputField />
+                    <NumberInputStepper>
+                      <NumberIncrementStepper />
+                      <NumberDecrementStepper />
+                    </NumberInputStepper>
+                  </NumberInput>
                   <Button onClick={() => removeFromCart(item.id, item.selectedOption.size)} size="sm" colorScheme='red'>
                     X
                   </Button>
