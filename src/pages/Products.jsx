@@ -57,7 +57,7 @@ const ProductCard = ({ product, onLearnMore }) => (
   </Box>
 )
 
-const ProductDrawer = ({ isOpen, onClose, product, addToCart}) => {
+const ProductDrawer = ({ isOpen, onClose, product, addToCart }) => {
   if (!product) return null
 
   console.log(addToCart)
@@ -81,6 +81,12 @@ const ProductDrawer = ({ isOpen, onClose, product, addToCart}) => {
               Ingredients
             </Heading>
             <Text>{product.ingredients}</Text>
+
+            <Heading as='h4' size='sm'>
+              Shelf Life
+            </Heading>
+
+            <Text>{product.shelfLife}</Text>
             <Heading as='h4' size='sm'>
               Available Sizes
             </Heading>
@@ -135,10 +141,6 @@ const ProductDrawer = ({ isOpen, onClose, product, addToCart}) => {
                 ))}
               </Tbody>
             </Table>
-            <Heading as='h4' size='sm'>
-              Shelf Life
-            </Heading>
-            <Text>{product.shelfLife}</Text>
           </VStack>
         </DrawerBody>
         <DrawerFooter>
