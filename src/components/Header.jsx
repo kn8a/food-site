@@ -90,7 +90,7 @@ const Header = (props) => {
                 leftIcon={<Icon as={FaShoppingCart} />}
                 onClick={props.cartToggle}
               >
-                {`Cart (${props.cartItemCount})`}
+                {`Order (${props.cartItemCount})`}
               </Button>
           </HStack>
           <Flex
@@ -114,7 +114,7 @@ const Header = (props) => {
       {isOpen && (
         <VStack
           display={{ base: "flex", md: "none" }}
-          position='fixed'
+          // position='fixed'
           top='0'
           left='0'
           right='0'
@@ -122,7 +122,7 @@ const Header = (props) => {
           bgGradient='linear(to-r, green.900, black)'
           spacing={4}
           zIndex={1}
-          pt={20}
+          // mt={20}
         >
           {navItems.map((item, index) => (
             <Button
