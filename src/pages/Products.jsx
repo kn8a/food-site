@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import {
   Box,
   Heading,
@@ -26,6 +26,11 @@ import {
   Tr,
   Th,
   Td,
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+  NumberIncrementStepper,
+  NumberDecrementStepper,
 } from "@chakra-ui/react"
 
 const ProductCard = ({ product, onLearnMore }) => (
@@ -60,7 +65,37 @@ const ProductCard = ({ product, onLearnMore }) => (
 const ProductDrawer = ({ isOpen, onClose, product, addToCart }) => {
   if (!product) return null
 
-  console.log(addToCart)
+  const [quantities, setQuantities] = useState({})
+  const [total, setTotal] = useState(0)
+
+  useEffect(() => {
+    const initialQuantities = product.options.reduce((acc, option) => {
+      acc[option.size] = 0
+      return acc
+    }, {})
+    setQuantities(initialQuantities)
+  }, [product])
+
+  useEffect(() => {
+    const newTotal = product.options.reduce((sum, option) => {
+      return sum + (quantities[option.size] || 0) * option.price * option.productsPerBox
+    }, 0)
+    setTotal(newTotal)
+  }, [quantities, product])
+
+  const handleQuantityChange = (size, value) => {
+    setQuantities(prev => ({ ...prev, [size]: value }))
+  }
+
+  const handleAddToCart = () => {
+    product.options.forEach(option => {
+      const quantity = quantities[option.size]
+      if (quantity > 0) {
+        addToCart({ ...product, selectedOption: option, quantity })
+      }
+    })
+    onClose()
+  }
 
   return (
     <Drawer isOpen={isOpen} placement='right' onClose={onClose} size='md'>
@@ -77,65 +112,42 @@ const ProductDrawer = ({ isOpen, onClose, product, addToCart }) => {
               w='full'
             />
             <Text>{product.detailedDescription}</Text>
-            <Heading as='h4' size='sm'>
-              Ingredients
-            </Heading>
+            <Heading as='h4' size='sm'>Ingredients</Heading>
             <Text>{product.ingredients}</Text>
-
-            <Heading as='h4' size='sm'>
-              Shelf Life
-            </Heading>
-
+            <Heading as='h4' size='sm'>Shelf Life</Heading>
             <Text>{product.shelfLife}</Text>
-            <Heading as='h4' size='sm'>
-              Available Sizes
-            </Heading>
+            <Heading as='h4' size='sm'>Available Sizes</Heading>
             <Table variant='simple' mb={4}>
               <Thead>
                 <Tr>
                   <Th>Size</Th>
                   <Th>Items per Box</Th>
-
-                  <Th>Order Box</Th>
+                  <Th>Price per Box</Th>
+                  <Th>Quantity</Th>
                 </Tr>
               </Thead>
               <Tbody>
                 {product.options.map((option, index) => (
                   <Tr key={index}>
                     <Td>
-                      <VStack>
-                        <Text>{option.size}</Text>
-                        <Text fontSize={"smaller"}>
-                          ${option.price.toFixed(2)}
-                        </Text>
-                      </VStack>
+                      <Text>{option.size}</Text>
+                      <Text fontSize="smaller">${option.price.toFixed(2)} per item</Text>
                     </Td>
+                    <Td>{option.productsPerBox}</Td>
+                    <Td>${(option.price * option.productsPerBox).toFixed(2)}</Td>
                     <Td>
-                      <VStack>
-                        <Text>{option.productsPerBox}</Text>
-                        {/* <Text fontSize={'smaller'}>$ {(option.price * option.productsPerBox).toFixed(2)}</Text> */}
-                      </VStack>
-                    </Td>
-
-                    <Td>
-                      <Button
-                        onClick={(e) => {
-                          console.log(e)
-                          addToCart({ ...product, selectedOption: option })
-                        }}
-                        id={product.id}
-                        colorScheme='green'
-                        minH={"60px"}
-                        py={4}
+                      <NumberInput 
+                        min={0} 
+                        max={99} 
+                        value={quantities[option.size] || 0}
+                        onChange={(valueString) => handleQuantityChange(option.size, parseInt(valueString))}
                       >
-                        {" "}
-                        <VStack>
-                          <Text>Add to Cart</Text>
-                          <Text fontSize={"small"}>{`$${(
-                            option.price * option.productsPerBox
-                          ).toFixed(2)}`}</Text>
-                        </VStack>
-                      </Button>
+                        <NumberInputField />
+                        <NumberInputStepper>
+                          <NumberIncrementStepper />
+                          <NumberDecrementStepper />
+                        </NumberInputStepper>
+                      </NumberInput>
                     </Td>
                   </Tr>
                 ))}
@@ -144,9 +156,12 @@ const ProductDrawer = ({ isOpen, onClose, product, addToCart }) => {
           </VStack>
         </DrawerBody>
         <DrawerFooter>
-          <Button colorScheme='green' onClick={onClose}>
-            Close
-          </Button>
+          <HStack spacing={4} width="100%" justifyContent="space-between">
+            <Text fontWeight="bold">Total: ${total.toFixed(2)}</Text>
+            <Button colorScheme='green' onClick={handleAddToCart}>
+              Add to Order
+            </Button>
+          </HStack>
         </DrawerFooter>
       </DrawerContent>
     </Drawer>

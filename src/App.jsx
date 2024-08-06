@@ -18,6 +18,7 @@ const App = () => {
   const { isOpen, onOpen, onClose, onToggle } = useDisclosure()
 
   const addToCart = (item) => {
+    
     setCart(prevCart => {
       const existingItemIndex = prevCart.findIndex(
         cartItem => cartItem.id === item.id && cartItem.selectedOption.size === item.selectedOption.size
@@ -30,7 +31,7 @@ const App = () => {
         return updatedCart
       } else {
         // New item, add to cart with quantity 1
-        return [...prevCart, { ...item, quantity: 1 }]
+        return [...prevCart, { ...item }]
       }
     })
   }
