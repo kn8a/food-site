@@ -188,10 +188,16 @@ const Products = (props) => {
       image: "hummus",
       shelfLife: "2 weeks",
       options: [
-        { size: "200gr", productsPerBox: 28, price: 1.8 },
-        { size: "300gr", productsPerBox: 18, price: 2.5 },
-        { size: "500gr", productsPerBox: 12, price: 4.0 },
+        { size: "200gr", productsPerBox: 28, price: 1.8, weight: 200 },
+        { size: "300gr", productsPerBox: 18, price: 2.5, weight: 300 },
+        { size: "500gr", productsPerBox: 12, price: 4.0, weight: 400 },
       ],
+      calculateBoxWeight() {
+        this.options = this.options.map(option => ({
+          ...option,
+          boxWeight: option.weight * option.productsPerBox,
+        }));
+      },
     },
     {
       name: "Spicy Hummus",

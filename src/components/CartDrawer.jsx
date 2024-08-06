@@ -29,12 +29,16 @@ const CartDrawer = ({ isOpen, onClose, cart, removeFromCart, updateQuantity }) =
     <Drawer isOpen={isOpen} placement="right" onClose={onClose} size="md">
       <DrawerOverlay />
       <DrawerContent bg="white">
-        <DrawerCloseButton color="green.600" />
-        <DrawerHeader bg="green.800" color="white">Your Cart</DrawerHeader>
+        <DrawerCloseButton color="white" size={'lg'}/>
+        <DrawerHeader bg="green.800" color="white">Your Order</DrawerHeader>
 
         <DrawerBody>
           {cart.length === 0 ? (
-            <Text color="gray.600">Your cart is empty</Text>
+            <VStack justifyContent={'left'}>
+                <Text color="gray.600">There are no products in the order</Text>
+                {/* <Button colorScheme='green'>Go to products</Button> */}
+            </VStack>
+            
           ) : (
             <VStack spacing={4} align="stretch">
               {cart.map((item) => (
