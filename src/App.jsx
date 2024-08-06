@@ -27,7 +27,7 @@ const App = () => {
       if (existingItemIndex > -1) {
         // Item exists, increase quantity
         const updatedCart = [...prevCart]
-        updatedCart[existingItemIndex].quantity += 1
+        updatedCart[existingItemIndex].quantity += item.quantity
         return updatedCart
       } else {
         // New item, add to cart with quantity 1
