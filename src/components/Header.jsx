@@ -126,10 +126,13 @@ const Header = (props) => {
         >
           {navItems.map((item, index) => (
             <Button
+              display={'flex'}
+              justifyContent={'left'}
               key={index}
               as={RouterLink}
               to={item.path}
               colorScheme='green'
+              color={"green.400"}
               variant='ghost'
               size='lg'
               w='full'
@@ -139,6 +142,22 @@ const Header = (props) => {
               <Text>{item.name}</Text>
             </Button>
           ))}
+          <Button
+          display={'flex'}
+          justifyContent={'left'}
+          
+          as={RouterLink}
+          
+          colorScheme='green'
+          color={"green.400"}
+          variant='ghost'
+          size='lg'
+          w='full'
+                leftIcon={<Icon as={FaShoppingCart} />}
+                onClick={props.cartToggle}
+              >
+                <Text>{`Order (${props.cartItemCount})`}</Text>
+              </Button>
         </VStack>
       )}
     </Box>
