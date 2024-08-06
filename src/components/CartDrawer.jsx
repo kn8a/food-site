@@ -17,6 +17,7 @@ import {
   NumberInputStepper,
   NumberIncrementStepper,
   NumberDecrementStepper,
+  Box,
 } from "@chakra-ui/react"
 
 const CartDrawer = ({ isOpen, onClose, cart, removeFromCart, updateQuantity }) => {
@@ -27,29 +28,30 @@ const CartDrawer = ({ isOpen, onClose, cart, removeFromCart, updateQuantity }) =
   return (
     <Drawer isOpen={isOpen} placement="right" onClose={onClose} size="md">
       <DrawerOverlay />
-      <DrawerContent>
-        <DrawerCloseButton />
-        <DrawerHeader>Your Cart</DrawerHeader>
+      <DrawerContent bg="white">
+        <DrawerCloseButton color="green.600" />
+        <DrawerHeader bg="green.800" color="white">Your Cart</DrawerHeader>
 
         <DrawerBody>
           {cart.length === 0 ? (
-            <Text>Your cart is empty</Text>
+            <Text color="gray.600">Your cart is empty</Text>
           ) : (
             <VStack spacing={4} align="stretch">
               {cart.map((item) => (
-                <HStack key={`${item.id}-${item.selectedOption.size}`} justify="space-between">
-                  <Image src={`/food-site/products/${item.image}.jpg`} boxSize="50px" objectFit="cover" />
-                  <VStack align="start">
-                    <Text fontWeight="bold">{item.name}</Text>
-                    <Text fontSize="sm">{item.selectedOption.size} - {item.selectedOption.productsPerBox} per box</Text>
+                <HStack key={`${item.id}-${item.selectedOption.size}`} justify="space-between" p={2} borderBottom="1px" borderColor="gray.200">
+                  <Image src={`/food-site/products/${item.image}.jpg`} boxSize="60px" objectFit="cover" borderRadius="md" />
+                  <VStack align="start" flex={1}>
+                    <Text fontWeight="bold" color="green.800">{item.name}</Text>
+                    <Text fontSize="sm" color="gray.600">{item.selectedOption.size} - {item.selectedOption.productsPerBox} per box</Text>
                   </VStack>
-                  <Text>${(item.selectedOption.price * item.selectedOption.productsPerBox * item.quantity).toFixed(2)}</Text>
+                  <Text fontWeight="bold" color="green.600">${(item.selectedOption.price * item.selectedOption.productsPerBox * item.quantity).toFixed(2)}</Text>
                   <NumberInput
                     value={item.quantity}
                     onChange={(valueString) => updateQuantity(item.id, item.selectedOption.size, parseInt(valueString))}
                     min={1}
                     max={99}
-                    width="70px"
+                    size="sm"
+                    maxW="70px"
                   >
                     <NumberInputField />
                     <NumberInputStepper>
@@ -57,7 +59,7 @@ const CartDrawer = ({ isOpen, onClose, cart, removeFromCart, updateQuantity }) =
                       <NumberDecrementStepper />
                     </NumberInputStepper>
                   </NumberInput>
-                  <Button onClick={() => removeFromCart(item.id, item.selectedOption.size)} size="sm" colorScheme='red'>
+                  <Button onClick={() => removeFromCart(item.id, item.selectedOption.size)} size="sm" colorScheme="red" variant="outline">
                     X
                   </Button>
                 </HStack>
@@ -66,13 +68,13 @@ const CartDrawer = ({ isOpen, onClose, cart, removeFromCart, updateQuantity }) =
           )}
         </DrawerBody>
 
-        <DrawerFooter>
-          <VStack width="100%" align="stretch">
+        <DrawerFooter borderTop="1px" borderColor="gray.200">
+          <VStack width="100%" align="stretch" spacing={4}>
             <HStack justify="space-between">
-              <Text fontWeight="bold">Total:</Text>
-              <Text fontWeight="bold">${totalPrice.toFixed(2)}</Text>
+              <Text fontWeight="bold" color="green.800">Total:</Text>
+              <Text fontWeight="bold" color="green.600" fontSize="lg">${totalPrice.toFixed(2)}</Text>
             </HStack>
-            <Button colorScheme="green" width="100%">
+            <Button colorScheme="green" width="100%" size="lg">
               Checkout
             </Button>
           </VStack>
