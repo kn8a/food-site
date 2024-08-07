@@ -59,7 +59,7 @@ const Home = () => {
               alt='Hummus & Salads Hummus'
               borderRadius='md'
               w='full'
-              minW={"400px"}
+              minW={["250px","400px","400px"]}
             />
           </Box>
           <Box>
@@ -78,6 +78,34 @@ const Home = () => {
               Mediterranean cuisine to our international customers.`}
             </Text>
           </Box>
+        </Flex>
+        <Divider></Divider>
+        <Flex
+          direction={["column", "row-reverse", "row-reverse"]}
+          spacing={[5, 10]}
+          w='full'
+          gap={8}
+        >
+          <Box>
+            <Image
+              src='/food-site/heart-shaped-vegetables.png'
+              alt='Hummus & Salads Hummus'
+              borderRadius='md'
+              w='full'
+              // minW={"400px"}
+            />
+          </Box>
+          <Box>
+            <Heading as='h2' size={["lg", "xl"]} mb={[2, 4]}>
+              Our Ingredients
+            </Heading>
+            <Text fontSize={["md", "lg"]}>
+              {`We take pride in offering a wide range of products, all made from fresh, locally sourced vegetables, herbs, and spices. This commitment to using the finest ingredients not only guarantees that every bite of our hummus, salads, and dips delivers the authentic, rich flavors of Mediterranean cuisine that our customers love but also helps support local farmers. Whether it’s a classic recipe or an innovative new creation, our dedication to freshness is at the heart of everything we do. By sourcing locally, we ensure that our products are of the highest quality while contributing to the sustainability and growth of our local agricultural community.`}
+            </Text>
+          </Box>
+        </Flex>
+        <Flex>
+          <Image src='/food-site/divider.svg' h={"40px"}></Image>
         </Flex>
         {/* </SimpleGrid> */}
         <Divider colorScheme='green'></Divider>
