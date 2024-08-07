@@ -10,6 +10,7 @@ import {
   Button,
   VStack,
   Text,
+  Flex,
   HStack,
   Image,
   NumberInput,
@@ -23,6 +24,11 @@ import {
 const CartDrawer = ({ isOpen, onClose, cart, removeFromCart, updateQuantity }) => {
   const totalPrice = cart.reduce((sum, item) =>
     sum + (item.selectedOption.price * item.selectedOption.productsPerBox * item.quantity), 0
+    
+  )
+
+  const totalWeight  = cart.reduce((sum, item) =>
+    sum + (item.selectedOption.boxWeight * item.quantity), 0
   )
 
   return (
@@ -74,9 +80,13 @@ const CartDrawer = ({ isOpen, onClose, cart, removeFromCart, updateQuantity }) =
 
         <DrawerFooter borderTop="1px" borderColor="gray.200">
           <VStack width="100%" align="stretch" spacing={4}>
+            <Flex justifyContent={'center'} gap={4}>
+            <Text  color="green.800">Total Weight:</Text>
+            <Text  color="green.600" fontSize="lg">{(totalWeight/100).toFixed(1)} Kg</Text>
+            </Flex>
             <HStack justify="space-between">
-              <Text fontWeight="bold" color="green.800">Total:</Text>
-              <Text fontWeight="bold" color="green.600" fontSize="lg">${totalPrice.toFixed(2)}</Text>
+              <Text fontWeight="bold" color="green.800" fontSize="lg">Order Total:</Text>
+              <Text fontWeight="bold" color="green.600" fontSize='x-large'>${totalPrice.toFixed(2)}</Text>
             </HStack>
             <Button colorScheme="green" width="100%" size="lg">
               Checkout
