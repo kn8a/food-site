@@ -56,7 +56,7 @@ const ProductCard = ({ product, onLearnMore }) => (
         ))}
       </Wrap>
       <Button colorScheme='green' onClick={() => onLearnMore(product)}>
-        Learn More
+        View Details
       </Button>
     </VStack>
   </Box>
@@ -117,26 +117,27 @@ const ProductDrawer = ({ isOpen, onClose, product, addToCart }) => {
             <Heading as='h4' size='sm'>Shelf Life</Heading>
             <Text>{product.shelfLife}</Text>
             <Heading as='h4' size='sm'>Available Sizes</Heading>
-            <Table variant='simple' mb={4}>
-              <Thead>
-                <Tr>
-                  <Th>Size</Th>
-                  <Th>Items per Box</Th>
-                  <Th>Price per Box</Th>
-                  <Th>Quantity</Th>
+            <Table variant='simple' mb={4} p={0}>
+              <Thead p={0} m={0}>
+                <Tr p={0} m={0}>
+                  <Th p={0} >Size</Th>
+                  <Th p={0} m={0}>Items per Box</Th>
+                  <Th p={0} m={0}>Price per Box</Th>
+                  <Th p={0} m={0}>Boxes</Th>
                 </Tr>
               </Thead>
               <Tbody>
                 {product.options.map((option, index) => (
                   <Tr key={index}>
-                    <Td>
+                    <Td p={0} m={0} py={2}>
                       <Text>{option.size}</Text>
                       <Text fontSize="smaller">${option.price.toFixed(2)} per item</Text>
                     </Td>
-                    <Td>{option.productsPerBox}</Td>
-                    <Td>${(option.price * option.productsPerBox).toFixed(2)}</Td>
-                    <Td>
+                    <Td p={0} m={0}>{option.productsPerBox}</Td>
+                    <Td p={0} m={0}>${(option.price * option.productsPerBox).toFixed(2)}</Td>
+                    <Td p={0} m={0}>
                       <NumberInput 
+                      maxW={20}
                         min={0} 
                         max={99} 
                         value={quantities[option.size] || 0}
