@@ -26,6 +26,7 @@ import {
   NumberDecrementStepper,
   HStack,
   Button,
+  Divider,
 } from "@chakra-ui/react"
 
 const ProductDrawer = ({ isOpen, onClose, product, addToCart, cartToggle }) => {
@@ -72,7 +73,7 @@ const ProductDrawer = ({ isOpen, onClose, product, addToCart, cartToggle }) => {
       <DrawerOverlay />
       <DrawerContent>
         <DrawerCloseButton />
-        <DrawerHeader>{product.name}</DrawerHeader>
+        <DrawerHeader color='green.600'>{product.name}</DrawerHeader>
         <DrawerBody>
           <VStack spacing={4} align='start'>
             <Image
@@ -82,16 +83,24 @@ const ProductDrawer = ({ isOpen, onClose, product, addToCart, cartToggle }) => {
               w='full'
             />
             <Text>{product.detailedDescription}</Text>
-            <Heading as='h4' size='sm'>
-              Ingredients
+            <Divider></Divider>
+            <VStack align={'start'}>
+            <Heading as='h4' size='sm' color='green.600'>
+              Ingredients:
             </Heading>
             <Text>{product.ingredients}</Text>
-            <Heading as='h4' size='sm'>
-              Shelf Life
+            </VStack>
+            <Divider></Divider>
+            <VStack align={'start'}>
+            <Heading as='h4' size='sm' color='green.600'>
+              Shelf Life:
             </Heading>
             <Text>{product.shelfLife}</Text>
-            <Heading as='h4' size='sm'>
-              Available Sizes
+            </VStack>
+            <Divider></Divider>
+            
+            <Heading as='h4' size='sm' color='green.600'>
+              Available Sizes:
             </Heading>
             <Table variant='simple' mb={4} p={0}>
               <Thead p={0} m={0}>
@@ -151,7 +160,7 @@ const ProductDrawer = ({ isOpen, onClose, product, addToCart, cartToggle }) => {
         </DrawerBody>
         <DrawerFooter>
           <HStack spacing={4} width='100%' justifyContent='space-between'>
-            <Text fontWeight='bold'>Total: ${total.toFixed(2)}</Text>
+            <Text fontWeight='bold' color={"green.600"}>Total: ${total.toFixed(2)}</Text>
             <Button colorScheme='green' onClick={handleAddToCart}>
               Add to Order
             </Button>

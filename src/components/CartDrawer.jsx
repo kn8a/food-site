@@ -130,7 +130,7 @@ const CartDrawer = ({
             <Flex justifyContent={"center"} gap={4}>
               <Text color='green.800'>Total Weight:</Text>
               <Text color='green.600' fontSize='lg'>
-                {(totalWeight / 100).toFixed(1)} Kg
+                {(totalWeight / 1000).toFixed(1)} Kg
               </Text>
             </Flex>
             <HStack justify='space-between'>
