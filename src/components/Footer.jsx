@@ -59,7 +59,7 @@ const Footer = () => {
             <Text fontWeight='bold' mb={2} color={"green.400"}>
               Quick Links
             </Text>
-            {["Home", "About Us", "Products", "Global Reach"].map((item) => (
+            {["Home", "About", "Products", "Global Reach"].map((item) => (
               <ChakraLink
                 as={RouterLink}
                 to={`/${item.toLowerCase().replace(" ", "-")}`}

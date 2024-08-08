@@ -65,6 +65,7 @@ const App = () => {
           <Header cartItemCount={cart.length} cartToggle={onToggle}/>
           <Box flex={1}>
             <Routes>
+              <Route path='/home' element={<Home />} />
               <Route path='/' element={<Home />} />
               <Route path='/about' element={<About />} />
               <Route path='/products' element={<Products addToCart={addToCart}/>} />
