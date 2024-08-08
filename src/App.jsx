@@ -68,7 +68,7 @@ const App = () => {
               <Route path='/home' element={<Home />} />
               <Route path='/' element={<Home />} />
               <Route path='/about' element={<About />} />
-              <Route path='/products' element={<Products addToCart={addToCart}/>} />
+              <Route path='/products' element={<Products addToCart={addToCart} cartToggle={onToggle}/>} />
               <Route path='/global-reach' element={<GlobalReach />} />
               <Route path='/contact' element={<ContactUs />} />
             </Routes>
