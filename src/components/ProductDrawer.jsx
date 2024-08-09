@@ -84,21 +84,21 @@ const ProductDrawer = ({ isOpen, onClose, product, addToCart, cartToggle }) => {
             />
             <Text>{product.detailedDescription}</Text>
             <Divider></Divider>
-            <VStack align={'start'}>
-            <Heading as='h4' size='sm' color='green.600'>
-              Ingredients:
-            </Heading>
-            <Text>{product.ingredients}</Text>
+            <VStack align={"start"}>
+              <Heading as='h4' size='sm' color='green.600'>
+                Ingredients:
+              </Heading>
+              <Text>{product.ingredients}</Text>
             </VStack>
             <Divider></Divider>
-            <VStack align={'start'}>
-            <Heading as='h4' size='sm' color='green.600'>
-              Shelf Life:
-            </Heading>
-            <Text>{product.shelfLife}</Text>
+            <VStack align={"start"}>
+              <Heading as='h4' size='sm' color='green.600'>
+                Shelf Life:
+              </Heading>
+              <Text>{product.shelfLife}</Text>
             </VStack>
             <Divider></Divider>
-            
+
             <Heading as='h4' size='sm' color='green.600'>
               Available Sizes:
             </Heading>
@@ -160,7 +160,9 @@ const ProductDrawer = ({ isOpen, onClose, product, addToCart, cartToggle }) => {
         </DrawerBody>
         <DrawerFooter>
           <HStack spacing={4} width='100%' justifyContent='space-between'>
-            <Text fontWeight='bold' color={"green.600"}>Total: ${total.toFixed(2)}</Text>
+            <Text fontWeight='bold' color={"green.600"}>
+              Total: ${total.toFixed(2)}
+            </Text>
             <Button colorScheme='green' onClick={handleAddToCart}>
               Add to Order
             </Button>

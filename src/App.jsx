@@ -13,17 +13,17 @@ import "./App.css"
 import CartDrawer from "./components/CartDrawer"
 
 const App = () => {
-
   const [cart, setCart] = useState([])
   const { isOpen, onOpen, onClose, onToggle } = useDisclosure()
 
   const addToCart = (item) => {
-    
-    setCart(prevCart => {
+    setCart((prevCart) => {
       const existingItemIndex = prevCart.findIndex(
-        cartItem => cartItem.id === item.id && cartItem.selectedOption.size === item.selectedOption.size
+        (cartItem) =>
+          cartItem.id === item.id &&
+          cartItem.selectedOption.size === item.selectedOption.size
       )
-      
+
       if (existingItemIndex > -1) {
         // Item exists, increase quantity
         const updatedCart = [...prevCart]
@@ -37,19 +37,23 @@ const App = () => {
   }
 
   const removeFromCart = (itemId, size) => {
-    setCart(prevCart => prevCart.filter(item => !(item.id === itemId && item.selectedOption.size === size)))
+    setCart((prevCart) =>
+      prevCart.filter(
+        (item) => !(item.id === itemId && item.selectedOption.size === size)
+      )
+    )
   }
 
   const updateQuantity = (itemId, size, newQuantity) => {
-    setCart(prevCart => prevCart.map(item => {
-      if (item.id === itemId && item.selectedOption.size === size) {
-        return { ...item, quantity: newQuantity }
-      }
-      return item
-    }))
+    setCart((prevCart) =>
+      prevCart.map((item) => {
+        if (item.id === itemId && item.selectedOption.size === size) {
+          return { ...item, quantity: newQuantity }
+        }
+        return item
+      })
+    )
   }
-
-  const totalBoxes = cart.reduce((sum, item) => sum + item.quantity, 0)
 
   return (
     <ChakraProvider theme={theme}>
@@ -62,19 +66,25 @@ const App = () => {
           w={"100vw"}
           alignSelf={"center"}
         >
-          <Header cartItemCount={cart.length} cartToggle={onToggle}/>
+          <Header cartItemCount={cart.length} cartToggle={onToggle} />
           <Box flex={1}>
             <Routes>
               <Route path='/home' element={<Home />} />
               <Route path='/' element={<Home />} />
               <Route path='/about' element={<About />} />
-              <Route path='/products' element={<Products addToCart={addToCart} cartToggle={onToggle}/>} />
+              <Route
+                path='/products'
+                element={
+                  <Products addToCart={addToCart} cartToggle={onToggle} />
+                }
+              />
               <Route path='/global-reach' element={<GlobalReach />} />
               <Route path='/contact' element={<ContactUs />} />
             </Routes>
           </Box>
           <Footer />
           <CartDrawer
+            onOpen={onOpen}
             isOpen={isOpen}
             onClose={onClose}
             cart={cart}
