@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import {
   Heading,
   Text,
@@ -16,8 +16,6 @@ const Products = (props) => {
   const [selectedCategory, setSelectedCategory] = useState("All")
   const [selectedProduct, setSelectedProduct] = useState(null)
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
-
-  // console.log(props)
 
   const products = [
     {
