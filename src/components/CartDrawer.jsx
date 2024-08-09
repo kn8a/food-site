@@ -42,7 +42,7 @@ const CartDrawer = ({
   )
 
   return (
-    <Drawer isOpen={isOpen} placement='right' onClose={onClose} size='md'>
+    <Drawer isOpen={isOpen} placement='right' onClose={onClose} size='md' >
       <DrawerOverlay />
       <DrawerContent bg='white'>
         <DrawerCloseButton color='white' size={"lg"} />
@@ -50,7 +50,7 @@ const CartDrawer = ({
           Your Order
         </DrawerHeader>
 
-        <DrawerBody>
+        <DrawerBody p={2}>
           {cart.length === 0 ? (
             <VStack justifyContent={"left"}>
               <Text color='gray.600'>There are no products in the order</Text>
@@ -62,7 +62,9 @@ const CartDrawer = ({
                 <HStack
                   key={`${item.id}-${item.selectedOption.size}`}
                   justify='space-between'
-                  p={2}
+                  py={2}
+                  px={0}
+                  m={0}
                   borderBottom='1px'
                   borderColor='gray.200'
                 >
