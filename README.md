@@ -23,8 +23,8 @@ This project is a React-based web application built with Chakra UI and React Rou
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/hummus-salads.git
-   cd hummus-salads
+   git clone https://github.com/yourusername/food-site.git
+   cd food-site
    ```
 2. Install dependencies:
    ```bash
