@@ -37,7 +37,7 @@ This project is a React-based web application built with Chakra UI and React Rou
    
 ## Usage
 
-**Navigating the App:** The app includes several pages such as Home, About, Products, Global Reach, and Contact Us. Navigate using the header links.
-**Adding Products to Cart:** On the Products page, users can add items to the cart by selecting the desired size and quantity.
-**Managing Cart Items:** The cart can be accessed via the cart icon in the header. Users can toggle the cart drawer, remove items, and update quantities.
-**Theming:** The app uses a custom Chakra UI theme located in the src/theme directory. Feel free to customize the theme to fit your needs.
+- **Navigating the App:** The app includes several pages such as Home, About, Products, Global Reach, and Contact Us. Navigate using the header links.
+- **Adding Products to Cart:** On the Products page, users can add items to the cart by selecting the desired size and quantity.
+- **Managing Cart Items:** The cart can be accessed via the cart icon in the header. Users can toggle the cart drawer, remove items, and update quantities.
+- **Theming:** The app uses a custom Chakra UI theme located in the src/theme directory. Feel free to customize the theme to fit your needs.
