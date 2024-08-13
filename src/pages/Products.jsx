@@ -204,7 +204,7 @@ const Products = (props) => {
         "Our tahini is made from the finest roasted sesame seeds, blended to a smooth and creamy texture. It's perfect for dressings, dips, and spreads.",
       ingredients: "Roasted sesame seeds, salt.",
       categories: ["Dips"],
-      image: "tahini.jpg",
+      image: "tahini1.jpg",
       shelfLife: "6 months",
       options: [
         {
@@ -240,7 +240,7 @@ const Products = (props) => {
       ingredients:
         "Chickpeas, tahini, olive oil, lemon juice, garlic, salt, pretzels.",
       categories: ["To-Go", "Hummus", "Dips"],
-      image: "to-go-hummus.jpg",
+      image: "to-go.jpg",
       shelfLife: "2 weeks",
       options: [
         {
@@ -436,6 +436,72 @@ const Products = (props) => {
         },
       ],
     },
+    {
+      "name": "Creamy Potato Salad",
+      "id": 1001,
+      "description": "A classic creamy potato salad with a rich and tangy dressing.",
+      "detailedDescription": "Our creamy potato salad is made with tender potatoes, mixed with a rich dressing of mayonnaise, sour cream, and mustard, complemented by crunchy bits of onion, celery, and a sprinkle of herbs. Perfect as a side dish for any meal or barbecue.",
+      "ingredients": "Potatoes, mayonnaise, sour cream, mustard, onion, celery, parsley, salt, pepper.",
+      "categories": ["Salads", "Veggie"],
+      "image": "potato-salad1.jpg",
+      "shelfLife": "1 week",
+      "options": [
+        {
+          "size": "250gr",
+          "productsPerBox": 24,
+          "price": 2.0,
+          "weight": 250,
+          "boxWeight": 250 * 24
+        },
+        {
+          "size": "500gr",
+          "productsPerBox": 12,
+          "price": 3.5,
+          "weight": 500,
+          "boxWeight": 500 * 12
+        },
+        {
+          "size": "750gr",
+          "productsPerBox": 8,
+          "price": 5.0,
+          "weight": 750,
+          "boxWeight": 750 * 8
+        }
+      ]
+    },
+    {
+      "name": "Fresh Greek Salad",
+      "id": 1002,
+      "description": "A vibrant and refreshing Greek salad with fresh veggies and feta cheese.",
+      "detailedDescription": "Our fresh Greek salad is a delightful mix of crisp lettuce, juicy tomatoes, crunchy cucumbers, and tangy olives, all tossed in a light olive oil dressing and topped with creamy feta cheese cubes. Perfect for a light lunch or as a side to your favorite meal.",
+      "ingredients": "Lettuce, tomatoes, cucumbers, olives, feta cheese, olive oil, oregano, salt, pepper.",
+      "categories": ["Salads"],
+      "image": "greek-salad.jpg",
+      "shelfLife": "3 days",
+      "options": [
+        {
+          "size": "250gr",
+          "productsPerBox": 24,
+          "price": 2.5,
+          "weight": 250,
+          "boxWeight": 250 * 24
+        },
+        {
+          "size": "500gr",
+          "productsPerBox": 12,
+          "price": 4.0,
+          "weight": 500,
+          "boxWeight": 500 * 12
+        },
+        {
+          "size": "750gr",
+          "productsPerBox": 8,
+          "price": 6.0,
+          "weight": 750,
+          "boxWeight": 750 * 8
+        }
+      ]
+    }
   ]
 
   const categories = [
