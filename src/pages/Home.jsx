@@ -32,7 +32,7 @@ const Home = () => {
               py={10}
               backdropFilter={"auto"}
               backdropBlur={"2px"}
-              backgroundColor={"rgba(0, 30, 0, 0.7)"}
+              backgroundColor={"rgba(27, 68, 49, 0.7)"}
               rounded={16}
             >
               <Heading as='h1' size={["xl", "2xl"]} mb={[2, 4]} color={"white"}>
