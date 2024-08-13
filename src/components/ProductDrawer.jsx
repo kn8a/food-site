@@ -77,7 +77,7 @@ const ProductDrawer = ({ isOpen, onClose, product, addToCart, cartToggle }) => {
         <DrawerBody>
           <VStack spacing={4} align='start'>
             <Image
-              src={`/food-site/products/${product.image}.jpg`}
+              src={`/food-site/products/${product.image}`}
               alt={product.name}
               borderRadius='md'
               w='full'

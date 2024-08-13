@@ -27,7 +27,7 @@ const Products = (props) => {
         "Our classic hummus is made with the finest chickpeas, tahini, olive oil, lemon juice, and a touch of garlic. It's smooth, creamy, and perfect for any occasion.",
       ingredients: "Chickpeas, tahini, olive oil, lemon juice, garlic, salt.",
       categories: ["Hummus", "Dips"],
-      image: "hummus",
+      image: "hummus.jpg",
       shelfLife: "2 weeks",
       options: [
         {
@@ -63,7 +63,7 @@ const Products = (props) => {
       ingredients:
         "Chickpeas, tahini, olive oil, lemon juice, garlic, salt, hot peppers, spices.",
       categories: ["Hummus", "Dips", "Spicy"],
-      image: "spicy-hummus",
+      image: "spicy-hummus.jpg",
       shelfLife: "2 weeks",
       options: [
         {
@@ -99,7 +99,7 @@ const Products = (props) => {
       ingredients:
         "Beetroots, chickpeas, tahini, olive oil, lemon juice, garlic, salt.",
       categories: ["Hummus", "Dips", "Veggie"],
-      image: "beetroot-hummus",
+      image: "beetroot-hummus.jpg",
       shelfLife: "2 weeks",
       options: [
         {
@@ -134,7 +134,7 @@ const Products = (props) => {
         "Our eggplant salad features roasted eggplants blended with olive oil, garlic, and a mix of Mediterranean spices. It's a perfect side dish or a healthy snack.",
       ingredients: "Eggplants, olive oil, garlic, salt, Mediterranean spices.",
       categories: ["Eggplant", "Salads", "Veggie"],
-      image: "eggplant",
+      image: "eggplant.jpg",
       shelfLife: "1 week",
       options: [
         {
@@ -169,7 +169,7 @@ const Products = (props) => {
         "Our baba ghanoush is made from roasted eggplants, tahini, lemon juice, and garlic, blended to a smooth and smoky perfection.",
       ingredients: "Eggplants, tahini, lemon juice, garlic, salt, olive oil.",
       categories: ["Eggplant", "Dips"],
-      image: "baba-ghanoush",
+      image: "baba-ghanoush.jpg",
       shelfLife: "1 week",
       options: [
         {
@@ -204,7 +204,7 @@ const Products = (props) => {
         "Our tahini is made from the finest roasted sesame seeds, blended to a smooth and creamy texture. It's perfect for dressings, dips, and spreads.",
       ingredients: "Roasted sesame seeds, salt.",
       categories: ["Dips"],
-      image: "tahini",
+      image: "tahini.jpg",
       shelfLife: "6 months",
       options: [
         {
@@ -240,7 +240,7 @@ const Products = (props) => {
       ingredients:
         "Chickpeas, tahini, olive oil, lemon juice, garlic, salt, pretzels.",
       categories: ["To-Go", "Hummus", "Dips"],
-      image: "to-go-hummus",
+      image: "to-go-hummus.jpg",
       shelfLife: "2 weeks",
       options: [
         {
@@ -268,7 +268,7 @@ const Products = (props) => {
         "Our carrot salad is made with fresh shredded carrots and a tangy dressing. It's refreshing, healthy, and perfect as a side dish or snack.",
       ingredients: "Carrots, olive oil, vinegar, salt, pepper.",
       categories: ["Veggie", "Salads"],
-      image: "carrot",
+      image: "carrot.jpg",
       shelfLife: "1 week",
       options: [
         {
@@ -304,7 +304,7 @@ const Products = (props) => {
       ingredients:
         "Cabbage, carrots, mayonnaise, vinegar, sugar, salt, pepper.",
       categories: ["Veggie", "Salads"],
-      image: "coleslaw",
+      image: "coleslaw.jpg",
       shelfLife: "1 week",
       options: [
         {
@@ -339,7 +339,7 @@ const Products = (props) => {
         "Our matbucha is a traditional Mediterranean dip made with tomatoes, peppers, garlic, and spices. It's spicy, flavorful, and perfect for dipping.",
       ingredients: "Tomatoes, peppers, garlic, olive oil, spices.",
       categories: ["Dips", "Spicy"],
-      image: "matbucha",
+      image: "matbucha.jpg",
       shelfLife: "2 weeks",
       options: [
         {
@@ -374,7 +374,7 @@ const Products = (props) => {
       ingredients:
         "Tomatoes, cucumbers, peppers, onions, parsley, olive oil, lemon juice, salt.",
       categories: ["Salads", "Veggie"],
-      image: "turkish",
+      image: "turkish.jpg",
       shelfLife: "1 week",
       options: [
         {
@@ -410,7 +410,7 @@ const Products = (props) => {
       ingredients:
         "Bulgur wheat, tomatoes, parsley, mint, lemon juice, olive oil, salt.",
       categories: ["Salads", "Veggie"],
-      image: "tabbouleh",
+      image: "tabbouleh.jpg",
       shelfLife: "1 week",
       options: [
         {

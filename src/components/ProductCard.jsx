@@ -14,7 +14,7 @@ const ProductCard = ({ product, onLearnMore }) => (
   <Box borderWidth={1} borderRadius='lg' overflow='hidden' p={4}>
     <VStack spacing={4} align='start'>
       <Image
-        src={`/food-site/products/${product.image}.jpg`}
+        src={`/food-site/products/${product.image}`}
         alt={product.name}
         borderRadius='md'
         w='full'
