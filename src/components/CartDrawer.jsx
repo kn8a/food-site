@@ -69,7 +69,7 @@ const CartDrawer = ({
                   borderColor='gray.200'
                 >
                   <Image
-                    src={`/food-site/products/${item.image}.jpg`}
+                    src={`/food-site/products/${item.image}`}
                     boxSize='60px'
                     objectFit='cover'
                     borderRadius='md'
