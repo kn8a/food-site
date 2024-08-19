@@ -11,6 +11,7 @@ import theme from "./theme"
 import ContactUs from "./pages/ContactUs"
 import "./App.css"
 import CartDrawer from "./components/CartDrawer"
+import Checkout from "./pages/Checkout"
 
 const App = () => {
   const [cart, setCart] = useState([])
@@ -79,6 +80,7 @@ const App = () => {
                 }
               />
               <Route path='/global-reach' element={<GlobalReach />} />
+              <Route path='/checkout' element={<Checkout cart={cart} />} />
               <Route path='/contact' element={<ContactUs />} />
             </Routes>
           </Box>

@@ -19,6 +19,8 @@ import {
   NumberIncrementStepper,
   NumberDecrementStepper,
 } from "@chakra-ui/react"
+import Checkout from "../pages/Checkout"
+import { Link as RouterLink } from "react-router-dom"
 
 const CartDrawer = ({
   isOpen,
@@ -40,6 +42,24 @@ const CartDrawer = ({
     (sum, item) => sum + item.selectedOption.boxWeight * item.quantity,
     0
   )
+
+//  const onCheckout = (order) => {
+//   const checkoutWindow = window.open('kn8a.github.io/react-cc-payment-form/');
+//   checkoutWindow.postMessage(cart, '*');
+//  }
+
+ const handleCheckout = (cart, totalPrice) => {
+  return(
+<Checkout cart={cart} totalPrice={totalPrice} />
+  )
+  
+  // const checkoutWindow = window.open('https://kn8a.github.io/react-cc-payment-form/', '_blank');
+  
+  // // Wait for the checkout window to load before sending the message
+  // checkoutWindow.addEventListener('load', () => {
+  //     checkoutWindow.postMessage(cart, 'kn8a.github.io/react-cc-payment-form/');
+  // });
+};
 
   return (
     <Drawer isOpen={isOpen} placement='right' onClose={onClose} size='md' >
@@ -143,7 +163,7 @@ const CartDrawer = ({
                 ${totalPrice.toFixed(2)}
               </Text>
             </HStack>
-            <Button colorScheme='green' width='100%' size='lg'>
+            <Button as={RouterLink} to={'/checkout'} colorScheme='green' width='100%' size='lg'>
               Checkout
             </Button>
           </VStack>
