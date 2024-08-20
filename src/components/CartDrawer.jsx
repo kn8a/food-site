@@ -19,7 +19,7 @@ import {
   NumberIncrementStepper,
   NumberDecrementStepper,
 } from "@chakra-ui/react"
-import Checkout from "../pages/Checkout"
+// import Checkout from "../pages/Checkout"
 import { Link as RouterLink } from "react-router-dom"
 
 const CartDrawer = ({
@@ -48,10 +48,10 @@ const CartDrawer = ({
 //   checkoutWindow.postMessage(cart, '*');
 //  }
 
- const handleCheckout = (cart, totalPrice) => {
-  return(
-<Checkout cart={cart} totalPrice={totalPrice} />
-  )
+//  const handleCheckout = (cart, totalPrice) => {
+//   return(
+// <Checkout cart={cart} totalPrice={totalPrice} />
+//   )
   
   // const checkoutWindow = window.open('https://kn8a.github.io/react-cc-payment-form/', '_blank');
   
@@ -59,7 +59,7 @@ const CartDrawer = ({
   // checkoutWindow.addEventListener('load', () => {
   //     checkoutWindow.postMessage(cart, 'kn8a.github.io/react-cc-payment-form/');
   // });
-};
+// };
 
   return (
     <Drawer isOpen={isOpen} placement='right' onClose={onClose} size='md' >
