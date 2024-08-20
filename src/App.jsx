@@ -80,7 +80,7 @@ const App = () => {
                 }
               />
               <Route path='/global-reach' element={<GlobalReach />} />
-              <Route path='/checkout' element={<Checkout cart={cart} />} />
+              <Route path='/checkout' element={<Checkout cart={cart} closeDrawer={onClose}/>} />
               <Route path='/contact' element={<ContactUs />} />
             </Routes>
           </Box>

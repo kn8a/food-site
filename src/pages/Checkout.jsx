@@ -34,7 +34,8 @@ const steps = [
   { title: 'Review', description: 'Order summary' },
 ];
 
-const Checkout = ({ cart, totalPrice }) => {
+const Checkout = ({ cart, closeDrawer, totalPrice }) => {
+    closeDrawer();
   const { activeStep, setActiveStep } = useSteps({
     index: 0,
     count: steps.length,
@@ -172,7 +173,7 @@ const Checkout = ({ cart, totalPrice }) => {
           <Button
             onClick={handlePrevStep}
             isDisabled={activeStep === 0}
-            colorScheme="gray"
+            colorScheme="green"
             mb={isMobile ? 2 : 0}
             width={isMobile ? '100%' : 'auto'}
           >
