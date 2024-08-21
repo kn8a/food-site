@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Box,
   Button,
@@ -35,7 +35,12 @@ const steps = [
 ];
 
 const Checkout = ({ cart, closeDrawer, totalPrice }) => {
+  useEffect(() => {
     closeDrawer();
+  },[])
+  
+  
+    
   const { activeStep, setActiveStep } = useSteps({
     index: 0,
     count: steps.length,
@@ -119,7 +124,7 @@ const Checkout = ({ cart, closeDrawer, totalPrice }) => {
             <Text fontWeight="bold">Order Summary</Text>
             {cart.map((item) => (
               <HStack key={`${item.id}-${item.selectedOption.size}`} justify="space-between">
-                <Text>{item.name} - {item.selectedOption.size}</Text>
+                <Text>{item.quantity} x {item.name} - {item.selectedOption.size}</Text>
                 <Text>${(item.selectedOption.price * item.selectedOption.productsPerBox * item.quantity).toFixed(2)}</Text>
               </HStack>
             ))}
@@ -177,14 +182,15 @@ const Checkout = ({ cart, closeDrawer, totalPrice }) => {
             mb={isMobile ? 2 : 0}
             width={isMobile ? '100%' : 'auto'}
           >
-            Previous
+            {`< Previous`}
           </Button>
+          <Button colorScheme='green' >View Cart</Button>
           <Button
             onClick={activeStep === steps.length - 1 ? () => alert('Order placed!') : handleNextStep}
             colorScheme="green"
             width={isMobile ? '100%' : 'auto'}
           >
-            {activeStep === steps.length - 1 ? 'Place Order' : 'Next'}
+            {activeStep === steps.length - 1 ? 'Place Order' : 'Next >'}
           </Button>
         </Flex>
       </VStack>
