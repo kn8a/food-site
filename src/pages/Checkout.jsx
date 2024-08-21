@@ -184,7 +184,7 @@ const Checkout = ({ cart, closeDrawer, totalPrice }) => {
           >
             {`< Previous`}
           </Button>
-          <Button colorScheme='green' >View Cart</Button>
+          {/* <Button colorScheme='green' >View Cart</Button> */}
           <Button
             onClick={activeStep === steps.length - 1 ? () => alert('Order placed!') : handleNextStep}
             colorScheme="green"
