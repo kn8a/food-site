@@ -1,3 +1,28 @@
+/**
+ * The main App component.
+ *
+ * This component renders the main structure of the application including the
+ * header, footer, and main content area. It also renders the CartDrawer and
+ * manages its state.
+ *
+ * The App component uses Chakra UI's `ChakraProvider` component to provide
+ * theme and color scheme context to the application.
+ *
+ * The App component renders a `Router` component which handles client-side
+ * routing. The `Router` component renders a `Box` component with the main
+ * content area. The `Box` component renders a `Routes` component which renders
+ * the appropriate page component based on the URL.
+ *
+ * The App component also renders a `CartDrawer` component which is a modal
+ * drawer component that displays the items in the cart and allows the user to
+ * update the quantity of items in the cart.
+ *
+ * The App component manages the state of the cart using the `useState` hook.
+ * The `addToCart` function adds an item to the cart, the `removeFromCart`
+ * function removes an item from the cart, and the `updateQuantity` function
+ * updates the quantity of an item in the cart.
+ */
+
 import { useState } from "react"
 import { ChakraProvider, Box, useDisclosure } from "@chakra-ui/react"
 import { HashRouter as Router, Route, Routes } from "react-router-dom"
@@ -12,6 +37,7 @@ import ContactUs from "./pages/ContactUs"
 import "./App.css"
 import CartDrawer from "./components/CartDrawer"
 import Checkout from "./pages/Checkout"
+
 
 const App = () => {
   const [cart, setCart] = useState([])
