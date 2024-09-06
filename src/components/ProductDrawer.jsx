@@ -1,5 +1,20 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/prop-types */
+
+/**
+ * A drawer that displays a product with its image, description, ingredients, and
+ * available sizes. The user can select the quantity of each size and add the
+ * product to the cart.
+ *
+ * @param {boolean} isOpen - Whether the drawer is open or not.
+ * @param {function} onClose - A function to call when the drawer is closed.
+ * @param {object} product - The product to display in the drawer.
+ * @param {function} addToCart - A function to add a product to the cart with
+ *   the quantity specified in the `quantity` property of the product.
+ * @param {function} cartToggle - A function to toggle the cart drawer open or
+ *   closed.
+ */
+
 import { useState, useEffect } from "react"
 import {
   Drawer,
@@ -28,6 +43,7 @@ import {
   Button,
   Divider,
 } from "@chakra-ui/react"
+
 
 const ProductDrawer = ({ isOpen, onClose, product, addToCart, cartToggle }) => {
   if (!product) return null
