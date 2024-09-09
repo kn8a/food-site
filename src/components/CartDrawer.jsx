@@ -29,6 +29,10 @@ const CartDrawer = ({
   removeFromCart,
   updateQuantity,
 }) => {
+
+  // Calculate the total price of the items in the cart
+  // by summing the price of each item multiplied by its
+  // quantity and the number of products per box
   const totalPrice = cart.reduce(
     (sum, item) =>
       sum +
@@ -38,28 +42,15 @@ const CartDrawer = ({
     0
   )
 
+  // Calculate the total weight of the items in the cart
+  // by summing the weight of each item multiplied by its
+  // quantity and the weight of each box
   const totalWeight = cart.reduce(
     (sum, item) => sum + item.selectedOption.boxWeight * item.quantity,
     0
   )
 
-//  const onCheckout = (order) => {
-//   const checkoutWindow = window.open('kn8a.github.io/react-cc-payment-form/');
-//   checkoutWindow.postMessage(cart, '*');
-//  }
 
-//  const handleCheckout = (cart, totalPrice) => {
-//   return(
-// <Checkout cart={cart} totalPrice={totalPrice} />
-//   )
-  
-  // const checkoutWindow = window.open('https://kn8a.github.io/react-cc-payment-form/', '_blank');
-  
-  // // Wait for the checkout window to load before sending the message
-  // checkoutWindow.addEventListener('load', () => {
-  //     checkoutWindow.postMessage(cart, 'kn8a.github.io/react-cc-payment-form/');
-  // });
-// };
 
   return (
     <Drawer isOpen={isOpen} placement='right' onClose={onClose} size='md' >
