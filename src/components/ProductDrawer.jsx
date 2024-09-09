@@ -51,16 +51,22 @@ const ProductDrawer = ({ isOpen, onClose, product, addToCart, cartToggle }) => {
   const [quantities, setQuantities] = useState({})
   const [total, setTotal] = useState(0)
 
+
+  // Reset the quantities to 0 when the product changes
   useEffect(() => {
     const initialQuantities = product.options.reduce((acc, option) => {
+      // For each size, set the quantity to 0
       acc[option.size] = 0
       return acc
     }, {})
     setQuantities(initialQuantities)
   }, [product])
 
+  // Recalculate the total when the quantities change
   useEffect(() => {
     const newTotal = product.options.reduce((sum, option) => {
+      // For each size, add the quantity multiplied by the price and
+      // products per box to the total
       return (
         sum +
         (quantities[option.size] || 0) * option.price * option.productsPerBox
@@ -69,10 +75,16 @@ const ProductDrawer = ({ isOpen, onClose, product, addToCart, cartToggle }) => {
     setTotal(newTotal)
   }, [quantities, product])
 
+
   const handleQuantityChange = (size, value) => {
     setQuantities((prev) => ({ ...prev, [size]: value }))
   }
 
+
+  /**
+   * Adds the selected quantities of the product to the cart and closes the
+   * drawer.
+   */
   const handleAddToCart = () => {
     product.options.forEach((option) => {
       const quantity = quantities[option.size]
